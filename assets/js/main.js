@@ -1,5 +1,7 @@
 import { initHeader } from "./header.js";
+import { initLanguages } from "./languages.js";
 import "./testimonials.js";
+import { initPartnersSlider } from "./sliders/partnersSlider.js";
 
 function initWholeCardLinks() {
   const cardConfigs = [
@@ -107,6 +109,7 @@ async function initApp() {
   );
 
   await headerLoad;
+  initLanguages();
   if (document.getElementById("drawerMenu")) {
     initHeader();
   } else {
@@ -115,6 +118,7 @@ async function initApp() {
 
   await footerLoad;
   initWholeCardLinks();
+  initPartnersSlider();
 }
 
 window.addEventListener("pageshow", () => {

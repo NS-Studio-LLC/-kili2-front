@@ -6,9 +6,7 @@
   padding: 0 0 2rem;
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   .breadcrumb {
@@ -33,15 +31,14 @@
 }
 
 .pd-main {
-  display: flex;
-  gap: 3.12rem;
+  @include flex(flex-start, stretch, 3.12rem);
 }
 
 .pd-gallery {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 37.1875rem;
+  @include flex(flex-start, stretch, 0, column);
+  width: auto;
+  max-width: none;
+  flex: 1 1 0;
   gap: 0.75rem;
 
   &__hero {
@@ -54,9 +51,7 @@
     border: 0.0625rem solid #dadbdd;
     border-radius: 0.75rem;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
   }
 
   &__hero-img {
@@ -83,17 +78,12 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
   }
 
   &__thumbs {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.625rem;
+    @include flex(center, center, 0.75rem);
+    align-self: stretch;
   }
 
   &__thumb {
@@ -106,9 +96,7 @@
     background: #fff;
 
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      @include img();
       display: block;
     }
   }
@@ -125,25 +113,20 @@
 }
 
 .pd-info {
-  display: flex;
-  flex-direction: column;
+  @include flex(flex-start, stretch, 0, column);
+  flex: 1 1 0;
   gap: 0.875rem;
 
   &__meta {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__summary {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    @include flex(flex-start, stretch, 1rem, column);
   }
 
   &__heading {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     gap: 0.375rem;
     align-self: stretch;
@@ -207,9 +190,7 @@
 }
 
 .pd-price {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  @include flex(flex-start, stretch, 0.3rem, column);
 
   &__old {
     color: #5a5f68;
@@ -232,10 +213,7 @@
 }
 
 .pd-stock {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
+  @include flex(space-between, center, 1.5rem);
 
   &__title {
     margin: 0;
@@ -264,33 +242,30 @@
 }
 
 .pd-actions {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem;
+  @include flex(space-between, flex-end, 1rem);
 
   &__left {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-start;
     gap: 0.375rem;
     align-self: stretch;
   }
 
   &__right {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    @include flex(flex-start, center, 0.75rem);
 
     .products__btn,
     .pd-btn--share {
       display: flex;
       height: 2.75rem;
       min-height: 2.75rem;
+      width: 12.0625rem;
+      max-width: 12.0625rem;
       padding: 0.625rem 0.75rem;
       justify-content: center;
       align-items: center;
       gap: 0.625rem;
+      flex: 0 0 auto;
       font-size: 0.875rem;
       box-sizing: border-box;
       line-height: normal;
@@ -304,6 +279,7 @@
     .pd-btn--share {
       display: flex;
       width: 6.375rem;
+      max-width: 6.375rem;
     }
   }
 }
@@ -325,19 +301,14 @@
 }
 
 .pd-help {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
+  @include flex(space-between, center, 0.75rem);
   padding: 0.75rem;
   border: 0.0625rem solid #dadbdd;
   border-radius: 0.75rem;
   background: #f5f5f5;
 
   &__left {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
+    @include flex(flex-start, center, 0.625rem);
 
     h3 {
       margin: 0;
@@ -370,11 +341,22 @@
 
 }
 
+.pd-help__title {
+  margin: 2rem 0 0;
+  color: #010203;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.pd-help-block {
+  @include flex(flex-start, stretch, 0.75rem, column);
+}
+
 .pd-specs {
   padding: 0 0 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  @include flex(flex-start, stretch, 1.5rem, column);
 
   &__title {
     margin: 0;
@@ -438,9 +420,8 @@
 }
 
 .pd-description {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  padding: 1.5rem 0;
+  @include flex(flex-start, stretch, 1rem, column);
 
   &__title {
     margin: 0;
@@ -452,9 +433,7 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex(flex-start, stretch, 0.75rem, column);
   }
 
   &__item {
@@ -467,5 +446,518 @@
     font-style: normal;
     font-weight: 400;
     line-height: 140%;
+  }
+}
+
+.page--product-details .blog-section {
+  .blog-card {
+    gap: 0.5rem;
+    min-height: auto;
+  }
+
+  .blog-card__body {
+    flex: 0 0 auto;
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .page--product-details {
+    .header {
+      --header-height: 7.5rem;
+    }
+
+    .header__inner {
+      grid-template-areas:
+        "logo . products"
+        "search search search";
+      grid-template-columns: auto 1fr auto;
+      row-gap: 0.75rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0;
+    }
+
+    #header-placeholder {
+      min-height: 7.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .header__nav,
+    .header__lang-wrap,
+    .header__lang {
+      display: none !important;
+    }
+  }
+}
+
+@include mq(phone-xs) {
+  .page--product-details {
+    .header {
+      --header-height: 8.5rem;
+    }
+
+    #header-placeholder {
+      min-height: 8.5rem;
+    }
+
+    .header__inner {
+      padding-bottom: 1rem;
+    }
+  }
+}
+
+@include mq(big-desktop-down) {
+  .pd-main {
+    gap: 2rem;
+  }
+
+  .pd-gallery {
+    max-width: 33rem;
+
+    &__thumb {
+      width: 5.875rem;
+      height: 5.875rem;
+    }
+  }
+
+  .pd-info {
+    &__title {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+@include mq(lg-down-2) {
+  .pd-main {
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .pd-gallery,
+  .pd-info {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+
+  .pd-gallery {
+    width: auto;
+    max-width: none;
+
+    &__thumbs {
+      justify-content: center;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+      align-self: center;
+    }
+
+    &__hero-img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    &__thumb {
+      width: 4.75rem;
+      height: 4.75rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .pd-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    &__right {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+}
+
+@include mq(lg-down) {
+  .pd-page .breadcrumb {
+    flex-wrap: wrap;
+  }
+
+  .pd-main {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .pd-gallery {
+    width: 100%;
+    max-width: 100%;
+
+    &__hero {
+      max-height: 32rem;
+    }
+  }
+
+  .pd-info {
+    width: 100%;
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .pd-page {
+    padding-bottom: 1.5rem;
+  }
+
+  .pd-page__container {
+    gap: 1rem;
+  }
+
+  .pd-info {
+    &__title {
+      font-size: 1.625rem;
+    }
+  }
+
+  .pd-stock {
+    gap: 0.75rem;
+  }
+
+  .pd-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+
+    &__left {
+      width: auto;
+    }
+
+    &__right {
+      width: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 0.625rem;
+
+      .products__btn,
+      .pd-btn--share {
+      }
+    }
+  }
+
+  .pd-help {
+    padding: 0.625rem;
+  }
+
+
+  .pd-specs {
+    padding: 1.5rem 0;
+
+    &__title {
+      font-size: 1.625rem;
+    }
+
+    &__table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    &__row {
+      th,
+      td {
+        min-width: 10rem;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .pd-description {
+    &__title {
+      font-size: 1.625rem;
+    }
+  }
+}
+
+@include mq(phone-only) {
+  .pd-page .breadcrumb {
+    gap: 0.25rem;
+
+    a {
+      font-size: 0.875rem;
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .pd-main {
+    gap: 1rem;
+  }
+
+  .pd-gallery {
+    &__hero {
+      padding: 0.75rem;
+      border-radius: 0.625rem;
+    }
+
+    &__discount {
+      width: 3.625rem;
+      height: 3.625rem;
+      right: 0.625rem;
+      top: 0.625rem;
+      font-size: 1rem;
+    }
+
+    &__thumb {
+      width: 3.375rem;
+      height: 3.375rem;
+      border-radius: 0.375rem;
+    }
+
+    &__arrow {
+      width: 1.75rem;
+      height: 1.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  .pd-info {
+    gap: 0.75rem;
+
+    &__title {
+      font-size: 2rem;
+      line-height: 1.05;
+    }
+
+    &__code {
+      font-size: 0.8125rem;
+    }
+
+    &__note {
+      padding: 0.75rem;
+      font-size: 0.8125rem;
+    }
+  }
+
+  .pd-price {
+    &__old {
+      font-size: 0.875rem;
+    }
+
+    &__new {
+      font-size: 2rem;
+    }
+  }
+
+  .pd-stock {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+
+    &__title {
+      font-size: 0.9375rem;
+    }
+
+    &__badge {
+      width: min-content;
+      white-space: nowrap;
+      font-size: 0.6875rem;
+    }
+  }
+
+  .pd-actions {
+    &__right {
+      width: 100%;
+      @include flex(flex-start, center, 0.75rem);
+
+      .products__btn,
+      .pd-btn--share {
+        height: 2.75rem;
+        min-height: 2.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.8125rem;
+      }
+
+      .products__btn {
+        flex: 1 1 auto;
+        width: auto;
+        max-width: none;
+      }
+
+      .pd-btn--share {
+        flex: 0 0 6.375rem;
+        width: 6.375rem;
+        max-width: 6.375rem;
+        padding-inline: 0.625rem;
+      }
+    }
+  }
+
+  .pd-help {
+    &__left {
+      h3 {
+        font-size: 0.9375rem;
+      }
+
+      p {
+        font-size: 0.75rem;
+      }
+    }
+
+    &__call {
+      min-height: 2.5rem;
+      padding-inline: 0.875rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .pd-specs {
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__row {
+      th,
+      td {
+        padding: 0.75rem 0.875rem;
+      }
+
+      th {
+        font-size: 0.875rem;
+      }
+
+      td {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .pd-description {
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__item {
+      font-size: 0.9375rem;
+    }
+  }
+
+}
+
+@include mq(lg-down-991) {
+  .pd-specs {
+    &__table {
+      display: table;
+      width: 100%;
+      overflow-x: visible;
+      -webkit-overflow-scrolling: auto;
+      table-layout: auto;
+    }
+
+    &__table col {
+      display: none;
+    }
+
+    &__row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    &__row th,
+    &__row td {
+      width: auto !important;
+      max-width: none;
+      min-width: 0;
+      padding: 1rem;
+      white-space: normal;
+    }
+
+    &__row th:nth-child(3),
+    &__row td:nth-child(3) {
+      border-left: none;
+    }
+
+    // Keep the divider between "Çəki" and "Zəmanət" on stacked last row
+    &__row:last-child th:nth-child(-n + 2),
+    &__row:last-child td:nth-child(-n + 2) {
+      border-bottom: 0.0625rem solid #dadbdd;
+    }
+  }
+}
+
+@include mq(phone-xs) {
+  .pd-help {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .pd-help__left {
+    width: 100%;
+  }
+
+  .pd-help__call {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pd-actions__right {
+    width: 100%;
+  }
+
+  .pd-actions__right .products__btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .pd-actions__right .pd-btn--share {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@include mq(micro-180) {
+  .pd-gallery__discount {
+    display: none;
+  }
+
+  .pd-help__left {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .pd-help__left h3,
+  .pd-help__left p {
+    overflow-wrap: anywhere;
+  }
+
+  .pd-help__call {
+    width: 100%;
+    min-width: 0;
+    padding-inline: 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .pd-stock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.375rem;
+  }
+
+  .pd-stock__badge {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .pd-actions__left {
+    width: 100%;
+  }
+
+  .pd-qty {
+    width: 100%;
+    max-width: 100%;
   }
 }

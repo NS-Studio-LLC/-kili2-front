@@ -6,16 +6,13 @@
 .hero {
   &__container {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    @include flex(center, flex-start);
     align-self: stretch;
     gap: 1rem;
   }
 
   &__banner {
     flex: 1 1 auto;
-    width: 55.125rem;
     height: 25.75rem;
     border-radius: 0.75rem;
     overflow: hidden;
@@ -39,8 +36,7 @@
     border: 0.125rem solid #e3002e;
     border-radius: 0.75rem;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
   }
 
   &__head {
@@ -56,18 +52,14 @@
 
   &__body {
     padding: 0 1rem 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.69rem;
+    @include flex(flex-start, stretch, 0.69rem, column);
     flex: 1;
     justify-content: space-between;
   }
 
   //* LED ISIQ *\\
   &__body_header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.69rem;
+    @include flex(flex-start, stretch, 0.69rem, column);
     padding: 0.75rem 0 0;
   }
 
@@ -88,9 +80,7 @@
 
   &__media {
     position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    @include flex(space-between, flex-start);
     width: 100%;
   }
 
@@ -116,20 +106,18 @@
     font-size: 0.875rem;
     font-weight: 700;
     line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
     flex-shrink: 0;
   }
 
   &__tags {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    @include flex(flex-start, stretch, 0.75rem, column);
     flex-shrink: 0;
     margin-left: auto;
     align-self: flex-start;
     padding-top: 0.25rem;
+    position: relative;
+    z-index: 2;
   }
 
   &__stock,
@@ -159,10 +147,9 @@
   }
 
   &__footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 0.75rem;
+    @include flex(space-between, flex-end, 0.75rem);
+    position: relative;
+    z-index: 2;
   }
 
   &__btn {
@@ -175,10 +162,11 @@
   }
 
   &__prices {
-    display: flex;
-    flex-direction: column;
+    @include flex(flex-start, stretch, 0, column);
     align-items: flex-end;
     gap: 0.25rem;
+    position: relative;
+    z-index: 2;
   }
 
   &__old-price {
@@ -196,17 +184,339 @@
   }
 }
 
+@include mq(tablet-portrait-up) {
+  .hero {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__banner {
+      width: 100%;
+      height: 18rem;
+    }
+
+    &__card {
+      flex: none;
+      width: 100%;
+      height: auto;
+    }
+
+    &__title {
+      font-size: 0.875rem;
+    }
+
+    &__name {
+      font-size: 1.125rem;
+      line-height: 1.35;
+    }
+
+    &__media {
+      min-height: 12rem;
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      align-items: start;
+      column-gap: 0.75rem;
+    }
+
+    &__discount {
+      position: static;
+      left: auto;
+      right: auto;
+      top: auto;
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: end;
+      align-self: start;
+      width: 3.75rem;
+      height: 3.75rem;
+      font-size: 1.25rem;
+    }
+
+    &__img {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &__tags {
+      grid-column: 2;
+      grid-row: 1;
+      margin-left: 0;
+      justify-self: end;
+      align-self: start;
+      padding-top: 0;
+    }
+
+    &__stock,
+    &__sale {
+      min-height: 2rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+@include mq(phone-only) {
+  .hero {
+    &__banner {
+      height: 13.875rem;
+      border-radius: 0.875rem;
+    }
+
+    &__card {
+      border-radius: 1rem;
+    }
+
+    &__body {
+      gap: 0.875rem;
+    }
+
+    &__body_header {
+      gap: 0.75rem;
+    }
+
+    &__name {
+      font-size: 0.75rem;
+      line-height: 1.35;
+    }
+
+    &__media {
+      min-height: 11.5rem;
+      grid-template-columns: max-content 1fr;
+      column-gap: 0.5rem;
+    }
+
+    &__discount {
+      position: static;
+      left: auto;
+      right: auto;
+      top: auto;
+      grid-column: 1;
+      grid-row: 1;
+      justify-self: end;
+      width: 3.75rem;
+      height: 3.75rem;
+      font-size: 0.875rem;
+    }
+
+    &__tags {
+      grid-column: 2;
+      grid-row: 1;
+      margin-left: 0;
+      justify-self: end;
+      align-self: start;
+      gap: 0.625rem;
+      padding-top: 0;
+    }
+
+    &__stock,
+    &__sale {
+      min-height: 2.1875rem;
+      font-size: 0.625rem;
+    }
+
+    &__old-price {
+      font-size: 0.75rem;
+    }
+
+  }
+}
+
+@include mq(phone-xs) {
+  .hero {
+    &__card {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    &__head {
+      padding: 0.75rem;
+    }
+
+    &__title {
+      font-size: 0.875rem;
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    &__body_header {
+      align-items: flex-start;
+      text-align: left;
+      min-width: 0;
+    }
+
+    &__footer {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.625rem;
+    }
+
+    &__btn {
+      order: 2;
+      width: 11.5rem;
+      max-width: 100%;
+      min-width: 0;
+      min-height: 2.75rem;
+      padding: 0.625rem 0.75rem;
+      margin-left: 0;
+      align-self: flex-end;
+    }
+
+    &__media {
+      position: relative;
+      grid-template-columns: 1fr;
+      column-gap: 0;
+      row-gap: 0.5rem;
+      min-height: auto;
+    }
+
+    &__img {
+      grid-column: 1;
+      grid-row: 1;
+      width: 9.5rem;
+      height: 9.5rem;
+      max-width: 100%;
+      justify-self: center;
+    }
+
+    &__discount {
+      position: absolute;
+      left: auto;
+      right: 0.5rem;
+      top: 0;
+      grid-column: auto;
+      grid-row: auto;
+      transform: none;
+      width: 3rem;
+      height: 3rem;
+      font-size: 0.875rem;
+    }
+
+    &__tags {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      justify-self: stretch;
+      align-self: start;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      padding-top: 0;
+      justify-content: stretch;
+      align-items: stretch;
+      gap: 0.375rem;
+    }
+
+    &__stock,
+    &__sale {
+      display: inline-flex;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      min-height: 1.875rem;
+      padding: 0.3125rem 0.5rem;
+      font-size: 0.625rem;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.1;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    &__prices {
+      order: 1;
+      width: 100%;
+      @include flex(flex-start, stretch, 0, column);
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.125rem;
+      min-width: 0;
+    }
+
+    &__old-price,
+    &__price {
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    &__old-price {
+      font-size: 0.75rem;
+    }
+
+    &__price {
+      font-size: 0.9375rem;
+      line-height: 1.2;
+    }
+  }
+
+  .testimonials {
+    &__card {
+      height: 25.0625rem;
+    }
+  }
+}
+
+@include mq(micro-180) {
+  .hero {
+    &__media {
+      overflow: hidden;
+    }
+
+    &__img {
+      width: 180px;
+      height: 180px;
+      max-width: 100%;
+      justify-self: center;
+      transform: scale(1.55);
+      transform-origin: center;
+    }
+
+    &__btn {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      min-height: 2.25rem;
+      padding: 0.375rem 0.5rem;
+      font-size: 0.625rem;
+      gap: 0.625rem;
+    }
+
+    &__btn-icon svg {
+      width: 1.125rem;
+      height: 1.125rem;
+    }
+
+    &__discount {
+      display: none;
+    }
+
+    &__tags {
+      grid-template-columns: 1fr;
+    }
+
+    &__stock,
+    &__sale {
+      width: 100%;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+  }
+}
+
 // * TESTIMONIALS SECTION * \\
 .testimonials {
   &-section {
-    padding: 0 0 1.25rem;
+    padding: 1.5rem 0;
   }
 
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__grid {
@@ -296,10 +606,75 @@
   }
 }
 
+@include mq(lg-down-2) {
+  .testimonials {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .testimonials {
+    &-section {
+      padding: 1.5rem 0;
+    }
+
+    &__container {
+      gap: 1rem;
+    }
+
+    &__container .section-header {
+      &__nav {
+        display: none;
+      }
+
+      &__title {
+        font-size: 1.875rem;
+        line-height: 1.2;
+      }
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.625rem;
+    }
+
+    &__card {
+      height: 25.0625rem;
+    }
+  }
+}
+
+@include mq(phone-only) {
+  .testimonials {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__container .section-header {
+      &__title {
+        font-size: 1.625rem;
+      }
+    }
+
+    &__card {
+      height: 25.0625rem;
+    }
+
+    &__play {
+      right: 0.5rem;
+      top: 0.5rem;
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+}
+
 // * PROMO-DUO SECTION * \\
 .promo-duo {
   &-section {
-    padding: 2.5rem 0 2.5rem;
+    padding: 1.5rem 0;
   }
 
   &__container {
@@ -318,9 +693,7 @@
   }
 
   &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @include img();
     display: block;
     object-position: 50% 20%;
   }
@@ -337,9 +710,7 @@
 
   &__content {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
+    @include flex(flex-start, stretch, 0.375rem, column);
     left: 1.5rem;
     bottom: 1rem;
     z-index: 1;
@@ -354,7 +725,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 140%;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   &__text {
@@ -373,6 +744,8 @@
     bottom: 1.5rem;
     z-index: 1;
     display: inline-flex;
+    width: auto;
+    justify-content: flex-start;
     align-items: center;
     gap: 0.75rem;
     color: #fff;
@@ -391,33 +764,122 @@
 
 }
 
+@include mq(big-desktop-down) {
+  .promo-duo {
+    &__card {
+      height: 23.5rem;
+    }
+
+    &__content {
+      left: 1rem;
+      bottom: 1rem;
+      right: 1rem;
+      max-width: calc(100% - 9.5rem);
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      line-height: 140%;
+    }
+
+    &__text {
+      font-size: 0.8125rem;
+    }
+
+    &__link {
+      right: 1rem;
+      bottom: 1rem;
+      width: auto;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      font-size: 0.8125rem;
+    }
+  }
+}
+
+@include mq(lg-down) {
+  .promo-duo {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    &__card {
+      height: 22.5rem;
+    }
+
+    &__content {
+      right: 10.5rem;
+      bottom: 1rem;
+    }
+
+    &__link {
+      position: absolute;
+      left: auto;
+      right: 1rem;
+      bottom: 1rem;
+      margin-top: 0;
+      width: auto;
+      justify-content: flex-start;
+      gap: 0.75rem;
+    }
+  }
+}
+
+@include mq(phone-xs) {
+  .promo-duo {
+    &__content {
+      left: 1rem;
+      right: 1rem;
+      bottom: 4rem;
+      max-width: none;
+    }
+
+    &__title {
+      font-size: 1.25rem;
+      line-height: 140%;
+    }
+
+    &__text {
+      font-size: 0.875rem;
+      line-height: 140%;
+    }
+
+    &__link {
+      left: 1rem;
+      right: auto;
+      bottom: 1rem;
+      font-size: 0.875rem;
+    }
+  }
+}
+
 // * PARTNERS SECTION * \\
 .partners {
   &-section {
-    padding: 0 0 2.5rem;
+    padding: 1.5rem 0;
   }
 
   &__container {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    @include flex(flex-start, stretch, 1.5rem, column);
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
+    width: 100%;
     border: 0.0625rem solid #dadbdd;
-    border-radius: 0.375rem;
+    border-radius: 0;
     overflow: hidden;
     background: #fff;
   }
 
   &__item {
     height: 6.4375rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(center, center);
+    padding: 0 0.75rem;
+    overflow: hidden;
     border-right: 0.0625rem solid #dadbdd;
 
     &:last-child {
@@ -436,12 +898,103 @@
   }
 
   &__logo-img {
+    width: 100%;
     max-width: 11rem;
     max-height: 4rem;
-    width: auto;
     height: auto;
     display: block;
     object-fit: contain;
     filter: brightness(0) saturate(100%);
+  }
+}
+
+@include mq(lg-down-2) {
+  .partners__container {
+    padding-right: 0 !important;
+  }
+
+  .partners__container .section-header {
+    padding-right: var(--page-gutter);
+  }
+
+  .partners__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 0;
+    --partners-empty-size: 5%;
+  }
+
+  .partners__grid::after {
+    content: "";
+    flex: 0 0 var(--partners-empty-size);
+    border-left: 0.0625rem solid #dadbdd;
+  }
+
+  .partners__item {
+    flex: 0 0 19%;
+  }
+}
+
+@include mq(lg-down) {
+  .partners__container {
+    padding-right: 0 !important;
+  }
+
+  .partners__container .section-header {
+    padding-right: var(--page-gutter);
+  }
+
+  .partners__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 0;
+  }
+
+  .partners__grid {
+    --partners-empty-size: 4%;
+  }
+
+  .partners__item {
+    flex: 0 0 24%;
+  }
+}
+
+@include mq(tablet-600) {
+  .partners__container {
+    padding-right: 0 !important;
+  }
+
+  .partners__container .section-header {
+    padding-right: var(--page-gutter);
+  }
+
+  .partners__grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-right: 0;
+  }
+
+  .partners__grid {
+    --partners-empty-size: 7%;
+  }
+
+  .partners__item {
+    flex: 0 0 31%;
+  }
+}
+
+@include mq(phone-only) {
+  .partners__grid {
+    --partners-empty-size: 8%;
+  }
+
+  .partners__item {
+    flex: 0 0 46%;
   }
 }

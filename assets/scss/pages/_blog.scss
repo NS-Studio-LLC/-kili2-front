@@ -3,7 +3,7 @@
 @use "../base/base" as *;
 
 .blog-section {
-  padding: 0 0 2.5rem;
+  padding: 1.5rem 0;
 }
 
 .blog__container {
@@ -13,7 +13,41 @@
 .blog__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  grid-auto-rows: 1fr;
   gap: 1.5rem 1.25rem;
+}
+
+@include mq(lg-down) {
+  .blog__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .blog-card {
+    min-height: auto;
+  }
+
+  .blog-card__body {
+    flex: 0 0 auto;
+  }
+}
+
+@include mq(phone-only) {
+  .blog__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .blog-card {
+    min-height: auto;
+    gap: 1.25rem;
+  }
+
+  .blog-card__media {
+    height: 10.5625rem;
+    border-radius: 0.625rem;
+  }
 }
 
 .page--blog {
