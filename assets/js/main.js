@@ -103,7 +103,6 @@ async function loadPartial(url, targetId) {
 }
 
 async function initApp() {
-  // Ensure body scroll is never left locked from previous UI state.
   document.body.classList.remove("drawer-open");
 
   const headerLoad = loadPartial(

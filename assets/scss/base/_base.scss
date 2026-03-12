@@ -77,6 +77,19 @@ textarea {
   padding-right: var(--page-gutter);
 }
 
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container-xxl,
+.container-fluid {
+  width: 100% !important;
+  max-width: none !important;
+  padding-left: var(--page-gutter) !important;
+  padding-right: var(--page-gutter) !important;
+}
+
 .blog-card,
 .products__card,
 .hero__card {
@@ -125,5 +138,14 @@ textarea {
 
   &__nav {
     @include flex(flex-start, center, 0.5rem);
+  }
+}
+
+@include mq(tablet-portrait-up) {
+  .section-header {
+    &__title {
+      font-size: clamp(1.25rem, 4.2vw, 2rem);
+      line-height: 120%;
+    }
   }
 }

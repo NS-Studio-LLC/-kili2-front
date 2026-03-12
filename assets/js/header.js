@@ -42,8 +42,8 @@ function initDrawerMenu() {
       name: "Foto & Video İşıqlandırmalar",
       icon: iconCamera,
       subs: [
-        "RGB Led Panel",
-        "İki Rəngli Led Panel",
+        "RGB LED Panel",
+        "İki Rəngli LED Panel",
         "İmpuls İşıq",
         "Daimi İşıq",
         "Flaş",
@@ -88,7 +88,7 @@ function initDrawerMenu() {
       ],
     },
     {
-      name: "Led Striplər",
+      name: "LED Striplər",
       icon: iconStrip,
       subs: ["5 Metrlik", "10 Metrlik", "15 Metrlik"],
     },
