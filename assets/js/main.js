@@ -1,7 +1,9 @@
 import { initHeader } from "./header.js";
 import { initLanguages } from "./languages.js";
 import "./testimonials.js";
-import { initPartnersSlider } from "./sliders/partnersSlider.js";
+import { initPartnersSlider } from "./carousels_sliders/partnersSlider.js";
+import { initProductsAutoRotate } from "./carousels_sliders/productsCarousel.js";
+import { initFaqAccordion } from "./faq/initFaqAccordion.js";
 
 function initWholeCardLinks() {
   const cardConfigs = [
@@ -14,6 +16,11 @@ function initWholeCardLinks() {
       cardSelector: ".products__card",
       buttonSelector: ".products__btn",
       titleSelector: ".products__name",
+    },
+    {
+      cardSelector: ".hero__card",
+      buttonSelector: ".hero__btn",
+      titleSelector: ".hero__name",
     },
   ];
 
@@ -118,6 +125,8 @@ async function initApp() {
 
   await footerLoad;
   initWholeCardLinks();
+  initProductsAutoRotate();
+  initFaqAccordion();
   initPartnersSlider();
 }
 
