@@ -95,3 +95,13 @@
   flex-direction: $fd;
   gap: $g;
 }
+
+@mixin type-normal($weight, $line-height: normal) {
+  font-style: normal;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin lh-140() {
+  line-height: 140%;
+}

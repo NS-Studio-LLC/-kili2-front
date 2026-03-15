@@ -12,11 +12,8 @@
   a {
     color: #5a6268;
     text-decoration: none;
-    font-family: Inter, sans-serif;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
+     @include type-normal(500);
 
     &:visited,
     &:hover,

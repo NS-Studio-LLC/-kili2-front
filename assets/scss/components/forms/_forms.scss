@@ -17,7 +17,7 @@
 
   &__label {
     color: #010203;
-    font-size: 1rem;
+    font-size: clamp(calc(1rem - 0.125rem), 1.8vw, 1rem);
     font-weight: 500;
     line-height: 1.3;
 
@@ -33,7 +33,7 @@
     border-radius: 0.5rem;
     background: #f5f5f5;
     color: #111;
-    font-size: 0.875rem;
+    font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
     line-height: 1.35;
   }
 
@@ -60,7 +60,7 @@
 
   .contact-form__label {
     color: #010203;
-    font-size: 1rem;
+    font-size: clamp(calc(1rem - 0.125rem), 1.8vw, 1rem);
     font-weight: 500;
   }
 
@@ -70,13 +70,13 @@
     border-radius: 0.625rem;
     border-color: #dadbdd;
     color: #5a6268;
-    font-size: 1.125rem;
+    font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
   }
 
   .contact-form__input::placeholder,
   .contact-form__textarea::placeholder {
     color: #b5b5b5;
-    font-size: 1rem;
+    font-size: clamp(calc(1rem - 0.125rem), 1.8vw, 1rem);
   }
 
   .contact-form__input {
@@ -108,14 +108,14 @@
 
   &__captcha-status {
     color: #1e232f;
-    font-size: 1.25rem;
+    font-size: clamp(calc(1.25rem - 0.125rem), 1.8vw, 1.25rem);
     font-weight: 500;
     line-height: 1;
   }
 
   &__captcha-brand {
     color: #616a7c;
-    font-size: 1rem;
+    font-size: clamp(calc(1rem - 0.125rem), 1.8vw, 1rem);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -131,11 +131,11 @@
 
     .contact-form__input,
     .contact-form__textarea {
-      font-size: 1.0625rem;
+      font-size: clamp(calc(1.0625rem - 0.125rem), 1.8vw, 1.0625rem);
     }
 
     &__captcha-status {
-      font-size: 1rem;
+      font-size: clamp(calc(1rem - 0.125rem), 1.8vw, 1rem);
     }
   }
 }
@@ -155,12 +155,12 @@
     .contact-form__input {
       height: 3.25rem;
       padding-inline: 0.875rem;
-      font-size: 1.125rem;
+      font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
     }
 
     .contact-form__textarea {
       min-height: 7rem;
-      font-size: 1.125rem;
+      font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
       padding: 0.75rem;
     }
 
@@ -178,11 +178,11 @@
     }
 
     &__captcha-status {
-      font-size: 1.125rem;
+      font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
     }
 
     &__captcha-brand {
-      font-size: 0.875rem;
+      font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
     }
   }
 }

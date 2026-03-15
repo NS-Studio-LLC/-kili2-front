@@ -25,11 +25,8 @@
       border: 1px solid #e3002e;
       color: #e3002e;
       background: rgba(227, 0, 46, 0.1);
-      font-family: Inter, sans-serif;
       font-size: 0.75rem;
-      font-style: normal;
-      font-weight: 500;
-      line-height: normal;
+       @include type-normal(500);
       z-index: 2;
     }
 
@@ -65,22 +62,16 @@
     &::before {
       content: "600.00 AZN";
       color: #5a5f68;
-      font-family: Inter, sans-serif;
       font-size: 0.75rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
+       @include type-normal(400);
       text-decoration-line: line-through;
     }
 
     &::after {
       content: "300.00 AZN";
       color: #010203;
-      font-family: Inter, sans-serif;
       font-size: 1.125rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
+       @include type-normal(600);
       text-decoration-line: none;
       line-height: normal;
     }

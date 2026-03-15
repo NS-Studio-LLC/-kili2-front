@@ -47,14 +47,14 @@
 
   &__category {
     color: #7d7d7d;
-    font-size: 0.8125rem;
+    font-size: clamp(calc(0.8125rem - 0.125rem), 1.8vw, 0.8125rem);
     line-height: 1.2;
   }
 
   &__name {
     margin: 0;
     color: #111;
-    font-size: 0.9375rem;
+    font-size: clamp(calc(0.9375rem - 0.125rem), 1.8vw, 0.9375rem);
     font-weight: 600;
     line-height: 1.45;
     min-height: auto;
@@ -91,7 +91,7 @@
     max-width: 100%;
     overflow: visible;
     text-overflow: clip;
-    font-size: 0.75rem;
+    font-size: clamp(calc(0.75rem - 0.125rem), 1.8vw, 0.75rem);
     font-weight: 500;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
@@ -135,11 +135,9 @@
 
   &__price {
     color: #010203;
-    font-family: Inter;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    font-family: "Inter", sans-serif;
+    font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
+     @include type-normal(600);
     white-space: nowrap;
   }
 
@@ -148,22 +146,16 @@
     align-items: flex-start;
     gap: 0.25rem;
     color: #5a5f68;
-    font-family: Inter, sans-serif;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-size: clamp(calc(0.75rem - 0.125rem), 1.8vw, 0.75rem);
+     @include type-normal(400);
     text-decoration-line: line-through;
     white-space: nowrap;
 
     &::after {
       content: "300.00 AZN";
       color: #010203;
-      font-family: Inter, sans-serif;
-      font-size: 1.125rem;
-      font-style: normal;
-      font-weight: 600;
-      line-height: normal;
+      font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
+       @include type-normal(600);
       text-decoration: none;
     }
   }
@@ -232,11 +224,11 @@
     }
 
     &__category {
-      font-size: 0.75rem;
+      font-size: clamp(calc(0.75rem - 0.125rem), 1.8vw, 0.75rem);
     }
 
     &__name {
-      font-size: 0.9375rem;
+      font-size: clamp(calc(0.9375rem - 0.125rem), 1.8vw, 0.9375rem);
       line-height: 1.35;
     }
 
@@ -250,7 +242,7 @@
     }
 
     &__badge {
-      font-size: 0.75rem;
+      font-size: clamp(calc(0.75rem - 0.125rem), 1.8vw, 0.75rem);
       padding: 0.25rem 0.5rem;
     }
 
@@ -268,12 +260,12 @@
       align-items: center;
       gap: 0.625rem;
       flex: 1 0 0;
-      font-size: 0.875rem;
+      font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
       border-radius: 0.25rem;
     }
 
     &__price {
-      font-size: 0.9375rem;
+      font-size: clamp(calc(0.9375rem - 0.125rem), 1.8vw, 0.9375rem);
     }
   }
 }
@@ -296,7 +288,7 @@
     }
 
     &__name {
-      font-size: 0.875rem;
+      font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
       width: 100%;
     }
 
@@ -313,13 +305,13 @@
       width: min(100%, 8.8125rem);
       min-width: 0;
       padding: 0.25rem 0.5rem;
-      font-size: 0.875rem;
+      font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
     }
 
     &__price {
       order: 1;
       width: 100%;
-      font-size: 0.875rem;
+      font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
       min-width: 0;
       white-space: normal;
       overflow-wrap: anywhere;

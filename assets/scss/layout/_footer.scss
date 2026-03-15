@@ -140,12 +140,8 @@
     display: flex;
     padding: 0;
     justify-content: flex-start;
-    align-items: flex-start;
-    gap: 0.625rem;
-  }
-
-  &__contact:nth-child(2) {
     align-items: center;
+    gap: 0.625rem;
   }
 
   &__icon {
@@ -306,7 +302,7 @@
     }
 
     &__contact {
-      align-items: flex-start;
+      align-items: center;
     }
 
     &__contact-text {
@@ -338,10 +334,14 @@
     }
 
     &__brand,
-    &__nav,
-    &__info {
+    &__nav {
       align-items: center;
       text-align: center;
+    }
+
+    &__info {
+      align-items: flex-start;
+      text-align: left;
     }
 
     &__logo {
@@ -369,17 +369,39 @@
     }
 
     &__contacts {
-      justify-items: center;
+      justify-items: stretch;
       gap: 0.75rem;
     }
 
     &__contact {
       width: 100%;
-      max-width: 18rem;
+      max-width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    &__contact-text,
+    &__phone {
+      text-align: left;
     }
 
     &__hours-row {
       justify-content: center;
+      width: 100%;
+    }
+
+    &__hours {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-self: center;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__hours-item {
+      text-align: center;
     }
 
     &__bottom {
@@ -419,16 +441,17 @@
     }
 
     &__contact {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.5rem;
+      flex-direction: row;
+      align-items: flex-start;
+      text-align: left;
+      gap: 0.625rem;
       max-width: 100%;
     }
 
     &__contact-text,
     &__phone {
       max-width: 100%;
+      text-align: left;
       font-size: clamp(0.75rem, 1.8vw, 0.8125rem);
       line-height: 1.4;
       overflow-wrap: anywhere;
@@ -439,6 +462,20 @@
       flex-direction: column;
       gap: 0.375rem;
       align-items: center;
+      width: 100%;
+    }
+
+    &__hours {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-self: center;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__hours-item {
+      text-align: center;
     }
 
     &__hours-divider {

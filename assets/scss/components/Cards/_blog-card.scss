@@ -31,20 +31,18 @@
   &__title {
     margin: 0;
     color: #010203;
-    font-family: Inter, sans-serif;
-    font-size: 1rem;
+    font-size: clamp(calc(1rem - 0.125rem), 1.8vw, 1rem);
     font-style: normal;
     font-weight: 500;
-    line-height: 140%;
+    @include lh-140;
   }
 
   &__desc {
     margin: 0;
     color: #5a5f68;
-    font-family: Inter, sans-serif;
-    font-size: 0.875rem;
+    font-size: clamp(calc(0.875rem - 0.125rem), 1.8vw, 0.875rem);
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+    @include lh-140;
   }
 }

@@ -58,9 +58,7 @@
     background: #f2002f;
     color: #fff;
     font-size: clamp(1rem, 2.4vw, 1.125rem);
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+     @include type-normal(700);
     @include flex(center, center);
   }
 
@@ -148,11 +146,8 @@
   &__title {
     margin: 0;
     color: #010203;
-    font-family: Inter, sans-serif;
     font-size: clamp(1.5rem, 4.2vw, 2rem);
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+     @include type-normal(600);
   }
 
   &__code {
@@ -172,7 +167,7 @@
     font-size: clamp(0.8125rem, 1.8vw, 0.875rem);
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+    @include lh-140;
     white-space: normal;
 
     strong {
@@ -185,9 +180,7 @@
     margin: 0;
     color: #e3002e;
     font-size: clamp(0.6875rem, 1.6vw, 0.75rem);
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+     @include type-normal(500);
   }
 }
 
@@ -196,21 +189,15 @@
 
   &__old {
     color: #5a5f68;
-    font-family: Inter, sans-serif;
     font-size: clamp(0.875rem, 2vw, 1rem);
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+     @include type-normal(400);
     text-decoration-line: line-through;
   }
 
   &__new {
     color: #010203;
-    font-family: Inter, sans-serif;
     font-size: clamp(1.5rem, 4.2vw, 2rem);
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+     @include type-normal(600);
   }
 }
 
@@ -221,9 +208,7 @@
     margin: 0;
     color: #010203;
     font-size: clamp(0.875rem, 2vw, 1rem);
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+     @include type-normal(600);
   }
 
   &__badge {
@@ -235,11 +220,8 @@
     border: 1px solid #0094f3;
     background: rgba(0, 148, 243, 0.1);
     color: #0084da;
-    font-family: Inter, sans-serif;
     font-size: clamp(0.6875rem, 1.6vw, 0.75rem);
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+     @include type-normal(500);
   }
 }
 
@@ -305,11 +287,10 @@
   align-items: center;
   border-radius: 0.375rem;
   border: 0.0625rem solid transparent;
-  font-family: Inter, sans-serif;
   font-size: clamp(0.8125rem, 1.8vw, 0.875rem);
   font-style: normal;
   font-weight: 500;
-  line-height: 140%;
+  @include lh-140;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-0.25rem);
@@ -369,7 +350,7 @@
       font-size: clamp(0.875rem, 2vw, 1rem);
       font-style: normal;
       font-weight: 600;
-      line-height: 140%;
+      @include lh-140;
     }
 
     p {
@@ -378,7 +359,7 @@
       font-size: clamp(0.8125rem, 1.8vw, 0.875rem);
       font-style: normal;
       font-weight: 400;
-      line-height: 140%;
+      @include lh-140;
     }
   }
 
@@ -398,9 +379,7 @@
   margin: 2rem 0 0;
   color: #010203;
   font-size: clamp(0.875rem, 2vw, 1rem);
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+   @include type-normal(600);
 }
 
 .pd-help-block {
@@ -490,7 +469,7 @@
     font-size: clamp(0.875rem, 2vw, 0.95rem);
     font-style: normal;
     font-weight: 400;
-    line-height: 140%;
+    @include lh-140;
   }
 }
 

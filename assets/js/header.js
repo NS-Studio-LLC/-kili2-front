@@ -364,8 +364,7 @@ function initDrawerMenu() {
   function renderSubcategories(index) {
     const category = categories[index];
     const subs = category?.subs || [];
-    const defaultSubIndex =
-      category?.name === "Tripod & Monopodlar" && subs.length > 1 ? 1 : 0;
+    const defaultSubIndex = 0;
 
     subBox.innerHTML = "";
     const list = document.createElement("ul");
@@ -573,8 +572,7 @@ function initDrawerMenu() {
 
       if (isCompactDrawer() && index === activeCategoryIndex) {
         const subs = category?.subs || [];
-        const defaultSubIndex =
-          category?.name === "Tripod & Monopodlar" && subs.length > 1 ? 1 : 0;
+        const defaultSubIndex = 0;
 
         itemLabel.classList.add("drawer__item--expanded");
 
