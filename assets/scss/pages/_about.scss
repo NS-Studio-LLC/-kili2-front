@@ -81,7 +81,7 @@
 }
 
 // * Desktop and Up
-@include mq(lg-down-991) {
+@include mq(laptop-small) {
   .about-page {
     &__hero-content {
       padding: 4.25rem 0 0 2rem;

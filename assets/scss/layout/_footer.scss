@@ -244,7 +244,7 @@
   }
 }
 
-@include mq(lg-down-1100) {
+@include mq(laptop-medium) {
   .footer {
     &__container {
       padding-block: 2.5rem;
@@ -490,7 +490,7 @@
   }
 }
 
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .footer {
     &__container {
       padding-block: 1rem;

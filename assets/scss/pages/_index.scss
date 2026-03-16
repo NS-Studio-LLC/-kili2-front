@@ -457,7 +457,7 @@
 }
 
 // * Micro phone and down
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .hero {
     &__media {
       overflow: hidden;
@@ -742,7 +742,7 @@
 }
 
 // * Desktop and down
-@include mq(lg-down-2) {
+@include mq(desktop-compact) {
   .partners__container {
     padding-right: 0 !important;
   }
@@ -799,7 +799,7 @@
 }
 
 // * Tablet and down
-@include mq(tablet-600) {
+@include mq(tablet-small) {
   .partners__container {
     padding-right: 0 !important;
   }

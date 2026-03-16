@@ -418,7 +418,7 @@ body.drawer-open {
   z-index: 1002;
 }
 
-@include mq(lg-down-991) {
+@include mq(laptop-small) {
   .header {
     &__inner {
       @include flex(space-between, center, 1rem);

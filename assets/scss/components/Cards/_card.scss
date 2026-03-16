@@ -254,7 +254,7 @@ $arrivals-btn-min-width: 8.8125rem;
   }
 }
 
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .arrivals {
     &__cards {
       .products__card .products__footer {

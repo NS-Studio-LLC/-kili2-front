@@ -123,7 +123,7 @@
 
 }
 
-@include mq(lg-down-2) {
+@include mq(desktop-compact) {
   .complaints-form {
     &__panel {
       padding: 1.5rem;

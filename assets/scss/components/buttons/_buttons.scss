@@ -233,7 +233,7 @@
   flex-shrink: 0;
   width: 12.5rem;
 
-  @include mq(lg-down-1150) {
+  @include mq(laptop-large) {
     display: none;
   }
 
@@ -271,7 +271,7 @@
     border-color: #c1002a !important;
   }
 
-  @include mq(lg-down-1150) {
+  @include mq(laptop-large) {
     display: none;
   }
 
@@ -403,7 +403,7 @@
     transform: scale(0.98);
   }
 
-  @include mq(lg-down-1350) {
+  @include mq(desktop-wide) {
     display: none;
   }
 }

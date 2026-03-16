@@ -108,7 +108,7 @@
 }
 
 // * Laptop and down
-@include mq(lg-down-2) {
+@include mq(desktop-compact) {
   .products {
     &__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -171,7 +171,7 @@
 }
 
 // * Micro phone and down
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .products-section--discount {
     .products__card {
       &::before,

@@ -174,7 +174,7 @@
   }
 }
 
-@include mq(lg-down-2) {
+@include mq(desktop-compact) {
   .products {
     &__card {
       padding: 1rem;
@@ -319,7 +319,7 @@
   }
 }
 
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .products__card {
     width: 100%;
     min-width: 0;

@@ -221,7 +221,7 @@
   }
 }
 
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .sa-page__container {
     padding-inline: 0.75rem;
   }

@@ -584,7 +584,7 @@
 }
 
 // * Large desktop and down 2
-@include mq(lg-down-2) {
+@include mq(desktop-compact) {
   .pd-main {
     gap: 1.5rem;
     align-items: flex-start;
@@ -886,7 +886,7 @@
 }
 
 // * Large desktop and down 3
-@include mq(lg-down-991) {
+@include mq(laptop-small) {
   .pd-specs {
     &__table {
       display: table;
@@ -961,7 +961,7 @@
 }
 
 // * Micro phone and down 2
-@include mq(micro-180) {
+@include mq(ultra-narrow) {
   .pd-gallery__discount {
     display: none;
   }
