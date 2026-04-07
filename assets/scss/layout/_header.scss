@@ -1,15 +1,23 @@
+@use '../abstracts/mixins' as *;
+
+$primary-color: #007bff;
+$overlay-bg: rgba(0, 0, 0, 0.5);
+
 header {
   display: flex;
   align-items: center;
-  gap: 32px;
+  justify-content: space-between;
+  gap: 24px;
   padding: 16px 100px;
+  position: relative;
+  z-index: 1000;
 
   .logo {
-    width: 118px;
+    width: 110px;
     height: 44px;
 
     img {
-      object-fit: cover;
+      object-fit: contain;
       width: 100%;
       height: 100%;
     }
@@ -23,6 +31,10 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+
+    @include mq(desktop-compact) {
+      display: none;
+    }
 
     span {
       color: #FFF;
@@ -42,11 +54,15 @@ header {
     border: 1px solid #DADBDD;
     background: #F9F9F9;
 
+    @include mq(tablet-portrait-up) {
+      display: none;
+    }
+
     input {
-      flex-grow: 1;
       background-color: transparent;
       color: #B4B4B4;
       font-size: 14px;
+      flex-grow: 1;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -55,6 +71,13 @@ header {
     .search-icon {
       padding-left: 10px;
       border-left: 1px solid #B4B4B4;
+      width: 32px;
+      height: 32px;
+
+      img {
+        width: 32px;
+        height: 32px;
+      }
     }
   }
 
@@ -63,6 +86,10 @@ header {
     align-items: center;
     gap: 16px;
 
+    @include mq(desktop-compact) {
+      display: none;
+    }
+
     .nav-link {
       padding: 12px;
       color: #5A6268;
@@ -70,44 +97,6 @@ header {
       font-style: normal;
       font-weight: 400;
       line-height: normal;
-    }
-
-    .btn-group {
-      padding: 10px 12px;
-
-      span {
-        color: #5A5F68;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-      }
-
-      .flag-img {
-        img {
-          width: 21px;
-          height: 15px;
-        }
-      }
-
-      .dropdown-toggle {
-        padding: 0;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        &::after {
-          display: none;
-        }
-      }
-
-      .dropdown-menu {
-        .dropdown-item {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-      }
     }
 
     .phone-div {
@@ -120,35 +109,214 @@ header {
 
       a {
         color: #FFF;
-        font-size: 14px;
+        font-size: 12px;
         font-style: normal;
         font-weight: 400;
         line-height: 140%;
+        // text-wrap: wrap;
+      }
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .btn-group {
+
+    span {
+      color: #5A5F68;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .flag-img {
+      img {
+        min-width: 21px;
+        min-height: 15px;
       }
     }
 
-  }
+    .dropdown-toggle {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-  .products-menu {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 99;
-    background-color: rgba(0, 0, 0, 0.4);
+      &::after {
+        display: none;
+      }
+    }
 
-    .menu{
-      background-color: red;
-      margin-top: 100px;
+    .dropdown-menu {
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+          width: 21px;
+          height: 15px;
+        }
+
+      }
     }
   }
 
+  .mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    background: #fff;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      position: static; // DƏYİŞDİRİLDİ: "relative" yerinə "static" etdik ki, "top: 0" yuxarı elementə (mega-menu) baxsın
+
+      &.has-submenu:hover>.submenu {
+        display: block;
+      }
+    }
+
+    .has-submenu {
+      padding: 16px;
+
+      &-menu-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+
+        &:hover {
+          border-radius: 6px;
+          background: #F5F5F5;
+        }
+
+        span {
+          color: #010203;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: normal;
+          text-transform: capitalize;
+        }
+
+        .arrow-icon {
+          margin-top: auto;
+        }
+      }
+
+      .submenu {
+        position: absolute;
+        top: 0; // Birbaşa mega-menu-nun yuxarı kənarına bərabərləşir
+        left: 100%;
+        background: #fff;
+        display: none;
+        border-left: 1px solid #eee;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
+        padding: 16px;
+
+        .has-card {
+          &:hover>.product-card {
+            display: block;
+          }
+
+          &-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 300px;
+            padding: 12px;
+
+            &:hover {
+              border-radius: 6px;
+              background: #F5F5F5;
+            }
+
+            span {
+              color: #010203;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 500;
+              line-height: normal;
+              text-transform: capitalize;
+              text-wrap: nowrap;
+            }
+
+            .arrow-icon {
+              margin-top: auto;
+            }
+          }
+
+          .product-card {
+            position: absolute;
+            top: 0; // DƏYİŞDİRİLDİ: Artıq submenu-nun ən yuxarı nöqtəsinə bərabərdir
+            left: 100%; // DƏYİŞDİRİLDİ: Tam olaraq sağa birləşir
+            padding: 15px;
+            width: fit-content;
+            background: #fff;
+            display: none;
+            border-left: 1px solid #eee;
+            text-align: center;
+            min-height: 100%;
+
+          }
+        }
+      }
+    }
+  }
+
+  .offcanvas-menu-button {
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #010203;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    @media (min-width: 1200px) {
+      display: none;
+    }
+
+    span {
+      color: #FFF;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $overlay-bg;
+  display: none;
+  z-index: 998;
+}
+
+.is-active {
+  display: block !important;
 }
 
 
-
-
+////////////////////////////////////////////////////////////////////
 
 
 // @use "../abstracts/mixins" as *;
