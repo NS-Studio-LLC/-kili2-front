@@ -8,21 +8,20 @@
     <!-- Zoom meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>ikili2.az</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="assets/css/style.css?v=20260314" />
 </head>
 
 <body class="page">
 
     <div class="page--home">
+
         <!-- * HEADER START * -->
         <div id="header-placeholder"></div>
         <script>
@@ -69,8 +68,20 @@
             <section class="hero">
                 <div class="hero__container">
                     <div class="hero__banner">
-                        <img loading="lazy" decoding="async" class="hero__banner-img"
-                            src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg" alt="NEEWER Softbox Kit" />
+                        <div class="swiper heroSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img loading="lazy" decoding="async" class="hero__banner-img"
+                                        src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg"
+                                        alt="NEEWER Softbox Kit" />
+                                </div>
+                                <div class="swiper-slide">
+                                    <img loading="lazy" decoding="async" class="hero__banner-img"
+                                        src="assets/images/cea975b6ca09f62abcdcf15189bfbef5c8f2d111.jpg"
+                                        alt="NEEWER Softbox Kit" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <aside class="hero__card">
@@ -1365,6 +1376,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
             </script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+        <script src="assets/js/heroSwiper.js"></script>
+
     </div>
 </body>
 
