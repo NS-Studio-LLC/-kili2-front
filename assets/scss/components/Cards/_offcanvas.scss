@@ -20,6 +20,10 @@
             }
         }
 
+        .btn-group{
+            margin-left: auto;
+        }
+
     }
 
     &-header-searchbar-div {
@@ -60,10 +64,9 @@
     }
 
     &-nav-links {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 32px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 32px;
         margin: 0 10px;
 
         .nav-link {

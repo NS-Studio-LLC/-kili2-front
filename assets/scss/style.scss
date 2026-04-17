@@ -13,6 +13,7 @@
 @use './components/navigation/drawer';
 @use './components/forms/forms';
 @use './components/Cards/offcanvas';
+@use './components/buttons/phoneButton';
 
 
 // layout
@@ -32,3 +33,4 @@
 @use './pages/contact';
 @use './pages/product-details';
 @use './pages/complaints';
+@use './pages/product-list';

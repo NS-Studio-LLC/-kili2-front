@@ -1,0 +1,28 @@
+.phone-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #010203;
+    min-width: fit-content;
+
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9;
+
+    a {
+        color: #FFF;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        // text-wrap: wrap;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}

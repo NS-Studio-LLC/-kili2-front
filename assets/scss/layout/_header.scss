@@ -7,13 +7,13 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 32px;
   padding: 16px 100px;
   position: relative;
   z-index: 1000;
 
   .logo {
-    width: 110px;
+    min-width: 110px;
     height: 44px;
 
     img {
@@ -31,6 +31,7 @@ header {
     display: flex;
     align-items: center;
     gap: 10px;
+    min-width: fit-content;
 
     @include mq(desktop-compact) {
       display: none;
@@ -90,40 +91,25 @@ header {
       display: none;
     }
 
-    .nav-link {
-      padding: 12px;
-      color: #5A6268;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-
-    .phone-div {
+    .nav-links {
       display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 6px;
-      background: #010203;
+      justify-content: space-between;
 
-      a {
-        color: #FFF;
-        font-size: 12px;
+      .nav-link {
+        padding: 12px;
+        color: #5A6268;
+        font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 140%;
-        // text-wrap: wrap;
-      }
-
-      img {
-        width: 20px;
-        height: 20px;
+        line-height: normal;
       }
     }
+
   }
 
   .btn-group {
+    min-width: fit-content;
 
     span {
       color: #5A5F68;
@@ -136,7 +122,7 @@ header {
     .flag-img {
       img {
         min-width: 21px;
-        min-height: 15px;
+        height: 15px;
       }
     }
 
@@ -213,13 +199,13 @@ header {
         }
 
         .arrow-icon {
-          margin-top: auto;
+          margin-left: auto;
         }
       }
 
       .submenu {
         position: absolute;
-        top: 0; // Birbaşa mega-menu-nun yuxarı kənarına bərabərləşir
+        top: 0;
         left: 100%;
         background: #fff;
         display: none;
@@ -227,10 +213,16 @@ header {
         box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
         padding: 16px;
 
-        .has-card {
-          &:hover>.product-card {
-            display: block;
+        &:hover {
+          .has-card {
+            .product-card {
+              display: block;
+            }
           }
+
+        }
+
+        .has-card {
 
           &-menu-item {
             display: flex;
@@ -313,6 +305,62 @@ header {
 
 .is-active {
   display: block !important;
+}
+
+.is-sticky {
+  backdrop-filter: blur(104px);
+  -webkit-backdrop-filter: blur(104px);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+
+  .black-icon {
+    display: inline;
+    width: 32px;
+    height: 32px;
+  }
+
+  .white-icon {
+    display: none;
+  }
+
+  .logo-div-blured {
+    display: block;
+    width: 106px;
+    height: 32px;
+    padding: 0;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .logo-div {
+    display: none;
+  }
+
+  nav {
+    a {
+      color: #000;
+    }
+  }
+
+  .header-actions {
+    .btn-group {
+      .dropdown-toggle {
+        color: #000;
+      }
+    }
+
+  }
+
 }
 
 

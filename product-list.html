@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+    <title>Məhsullar | ikili2.az</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="assets/css/style.css?v=20260314" />
+</head>
+
+<body class="page page--product-list">
+
+    <!-- @include('components.header') -->
+    <!-- * HEADER * -->
+    <header class="header">
+        <div class="header__inner">
+
+            <a class="header__logo" href="index.html">
+                <img loading="eager" fetchpriority="high" decoding="async" class="header__logo-img" src="assets/images/logo.png" alt="İkiliiki logo">
+            </a>
+
+            <button class="header__products" id="openDrawer" type="button" aria-label="Məhsullar menyusu" aria-expanded="false" aria-controls="drawerMenu">
+                <span class="header__menu-wrapper menu-wrapper" aria-hidden="true">
+                    <span class="header__hamburger-menu hamburger-menu"></span>
+                </span>
+                <span class="header__products-label">Məhsullar</span>
+            </button>
+
+            <div class="header__search">
+                <input class="header__search-input" type="text" placeholder="Axtarış..." />
+                <button class="header__search-btn" type="button" aria-label="Axtar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.7138 6.8382C18.1647 9.28913 18.1647 13.2629 15.7138 15.7138C13.2629 18.1647 9.28913 18.1647 6.8382 15.7138C4.38727 13.2629 4.38727 9.28913 6.8382 6.8382C9.28913 4.38727 13.2629 4.38727 15.7138 6.8382"
+                            stroke="#010203" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M19 19L15.71 15.71" stroke="#010203" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <nav class="header__nav">
+                <a class="header__nav-link" href="about.html">Haqqımızda</a>
+                <a class="header__nav-link" href="blog.html">Blog</a>
+                <a class="header__nav-link" href="contact.html">Bizimlə əlaqə</a>
+            </nav>
+
+            <div class="header__lang-wrap">
+                <button class="header__lang js-lang-trigger" type="button" aria-haspopup="true" aria-expanded="false"
+                    aria-controls="headerLangMenu">
+                    <span class="header__lang-flag js-lang-flag" aria-hidden="true">
+                        <svg width="24px" height="24px" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="xMidYMid meet" fill="#000000">
+                            <path fill="#E00034" d="M0 13h36v10H0z"></path>
+                            <path fill="#0098C3" d="M32 5H4a4 4 0 0 0-4 4v4h36V9a4 4 0 0 0-4-4z"></path>
+                            <g fill="#FFF">
+                                <path
+                                    d="M17.844 21.333a3.333 3.333 0 1 1 2.475-5.565a4 4 0 1 0 .001 4.464a3.325 3.325 0 0 1-2.476 1.101z">
+                                </path>
+                                <path
+                                    d="M23.667 17.998l-1.196-.424l.544-1.146l-1.146.545l-.426-1.195l-.424 1.196l-.003-.002l-1.144-.542l.546 1.146l-1.196.426l1.196.424l-.544 1.146l1.141-.543l.005-.002l.426 1.195l.424-1.196l1.147.544l-.546-1.146z">
+                                </path>
+                            </g>
+                            <path fill="#00AE65" d="M4 31h28a4 4 0 0 0 4-4v-4H0v4a4 4 0 0 0 4 4z"></path>
+                        </svg>
+                    </span>
+
+                    <span class="js-lang-label">Azərbaycan dili</span>
+
+                    <svg viewBox="0 0 24 24" fill="none" width="14" height="14" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <ul class="header__lang-menu js-lang-menu" id="headerLangMenu" hidden></ul>
+            </div>
+
+            <a class="header__phone" href="tel:0773339889">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.8561 13.144C9.68615 11.974 8.80415 10.664 8.21815 9.33499C8.09415 9.05399 8.16715 8.72499 8.38415 8.50799L9.20315 7.68999C9.87415 7.01899 9.87415 6.06999 9.28815 5.48399L8.11415 4.30999C7.33315 3.52899 6.06715 3.52899 5.28615 4.30999L4.63415 4.96199C3.89315 5.70299 3.58415 6.77199 3.78415 7.83199C4.27815 10.445 5.79615 13.306 8.24515 15.755C10.6941 18.204 13.5551 19.722 16.1681 20.216C17.2281 20.416 18.2971 20.107 19.0381 19.366L19.6891 18.715C20.4701 17.934 20.4701 16.668 19.6891 15.887L18.5161 14.714C17.9301 14.128 16.9801 14.128 16.3951 14.714L15.4921 15.618C15.2751 15.835 14.9461 15.908 14.6651 15.784C13.3361 15.197 12.0261 14.314 10.8561 13.144Z"
+                        stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                077-333-98-89
+            </a>
+
+        </div>
+    </header>
+
+    <div class="drawer" id="drawerMenu" role="dialog" aria-label="Məhsul kateqoriyaları">
+        <div class="drawer__overlay" id="drawerOverlay"></div>
+
+        <div class="drawer__panel" id="drawerPanel">
+            <div class="drawer__left" id="categories" role="menu"></div>
+
+            <div class="drawer__center" id="drawerCenter">
+                <div id="subcategories"></div>
+            </div>
+
+            <aside class="drawer__right"></aside>
+        </div>
+    </div>
+
+
+    <main>
+        <!-- * PRODUCT LIST PAGE START * -->
+        <section class="pl-page">
+            <div class="pl-page__container content-section">
+
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Ana səhifə</a>
+                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M1 1L5.29289 5.29289C5.68342 5.68342 5.68342 6.31658 5.29289 6.70711L1 11" stroke="#5a6268" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <a href="product-list.html" class="js-pl-cat-crumb">Kateqoriya</a>
+                    <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="js-pl-sub-sep" hidden>
+                        <path d="M1 1L5.29289 5.29289C5.68342 5.68342 5.68342 6.31658 5.29289 6.70711L1 11" stroke="#5a6268" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <a href="#" class="js-pl-sub-crumb" aria-current="page" hidden>Alt kateqoriya</a>
+                </nav>
+
+                <!-- Page header -->
+                <div class="pl-page__head">
+                    <h1 class="pl-page__title js-pl-title">Məhsullar</h1>
+                    <div class="pl-page__controls">
+                        <span class="pl-page__count js-pl-count">8 məhsul</span>
+                        <div class="pl-sort">
+                            <label class="pl-sort__label" for="plSort">Sırala:</label>
+                            <select class="pl-sort__select" id="plSort">
+                                <option value="relevance">Müvafiqlik</option>
+                                <option value="price-asc">Qiymət: Aşağıdan Yuxarı</option>
+                                <option value="price-desc">Qiymət: Yuxarıdan Aşağı</option>
+                                <option value="newest">Ən Yeni</option>
+                                <option value="rating">Ən Yüksək Reytinq</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout: filters + products -->
+                <div class="pl-page__layout">
+
+                    <!-- Filters sidebar -->
+                    <aside class="pl-filters" aria-label="Filterlər">
+                        <div class="pl-filters__head">
+                            <h2 class="pl-filters__title">Filterlər</h2>
+                            <button class="pl-filters__reset" type="button">Sıfırla</button>
+                        </div>
+
+                        <!-- Mobile filter toggle -->
+                        <button class="pl-filters__toggle" type="button" aria-expanded="false" aria-controls="plFiltersBody">
+                            <span>Filterlər</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+
+                        <div class="pl-filters__body" id="plFiltersBody">
+
+                            <!-- Stock filter -->
+                            <div class="pl-filter-group">
+                                <h3 class="pl-filter-group__title">Stok Vəziyyəti</h3>
+                                <div class="pl-filter-group__options">
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="stock" value="in-stock" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">Stokda var</span>
+                                        <span class="pl-filter-opt__count">6</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="stock" value="order" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">Sifarişlə</span>
+                                        <span class="pl-filter-opt__count">2</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="stock" value="out-of-stock" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">Tükəndi</span>
+                                        <span class="pl-filter-opt__count">1</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="stock" value="soon" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">Tezliklə</span>
+                                        <span class="pl-filter-opt__count">1</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Price range filter -->
+                            <div class="pl-filter-group">
+                                <h3 class="pl-filter-group__title">Qiymət Aralığı</h3>
+                                <div class="pl-price-range__inputs">
+                                    <div class="pl-price-range__field">
+                                        <input type="number" class="pl-price-range__input" id="priceMin" placeholder="0" min="0">
+                                        <span class="pl-price-range__currency">AZN</span>
+                                    </div>
+                                    <span class="pl-price-range__sep">&mdash;</span>
+                                    <div class="pl-price-range__field">
+                                        <input type="number" class="pl-price-range__input" id="priceMax" placeholder="9999" min="0">
+                                        <span class="pl-price-range__currency">AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Brand filter -->
+                            <div class="pl-filter-group">
+                                <h3 class="pl-filter-group__title">Brend</h3>
+                                <div class="pl-filter-group__options">
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="brand" value="neewer" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">NEEWER</span>
+                                        <span class="pl-filter-opt__count">5</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="brand" value="rode" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">RODE</span>
+                                        <span class="pl-filter-opt__count">2</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="brand" value="govee" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">Govee</span>
+                                        <span class="pl-filter-opt__count">2</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="brand" value="razer" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">RAZER</span>
+                                        <span class="pl-filter-opt__count">1</span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="checkbox" name="brand" value="zingyou" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label">ZINGYOU</span>
+                                        <span class="pl-filter-opt__count">1</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Rating filter -->
+                            <div class="pl-filter-group">
+                                <h3 class="pl-filter-group__title">Reytinq</h3>
+                                <div class="pl-filter-group__options">
+                                    <label class="pl-filter-opt">
+                                        <input type="radio" name="rating" value="5" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label pl-filter-opt__label--stars">
+                                            <svg width="88" height="16" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.04894 1.92705C7.3483 1.00574 8.6517 1.00574 8.9511 1.92705L9.72076 4.29596C9.85463 4.70797 10.2386 4.98694 10.6718 4.98694H13.1641C14.1328 4.98694 14.5356 6.22656 13.7519 6.79596L11.7394 8.25847C11.3889 8.51302 11.2423 8.92507 11.3761 9.33709L12.1458 11.7061C12.4451 12.6274 11.3907 13.3936 10.607 12.8242L8.59444 11.3617C8.24395 11.1072 7.76605 11.1072 7.41557 11.3617L5.40299 12.8242C4.61928 13.3936 3.5648 12.6274 3.86416 11.7061L4.63382 9.33709C4.7677 8.92507 4.62104 8.51302 4.27055 8.25847L2.25797 6.79596C1.47426 6.22656 1.87704 4.98694 2.84577 4.98694H5.33809C5.7713 4.98694 6.15527 4.70797 6.28914 4.29596L7.04894 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M24.0489 1.92705C24.3483 1.00574 25.6517 1.00574 25.9511 1.92705L26.7208 4.29596C26.8546 4.70797 27.2386 4.98694 27.6718 4.98694H30.1641C31.1328 4.98694 31.5356 6.22656 30.7519 6.79596L28.7394 8.25847C28.3889 8.51302 28.2423 8.92507 28.3761 9.33709L29.1458 11.7061C29.4451 12.6274 28.3907 13.3936 27.607 12.8242L25.5944 11.3617C25.244 11.1072 24.766 11.1072 24.4156 11.3617L22.403 12.8242C21.6193 13.3936 20.5648 12.6274 20.8642 11.7061L21.6338 9.33709C21.7677 8.92507 21.621 8.51302 21.2705 8.25847L19.258 6.79596C18.4743 6.22656 18.877 4.98694 19.8458 4.98694H22.3381C22.7713 4.98694 23.1553 4.70797 23.2891 4.29596L24.0489 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M41.0489 1.92705C41.3483 1.00574 42.6517 1.00574 42.9511 1.92705L43.7208 4.29596C43.8546 4.70797 44.2386 4.98694 44.6718 4.98694H47.1641C48.1328 4.98694 48.5356 6.22656 47.7519 6.79596L45.7394 8.25847C45.3889 8.51302 45.2423 8.92507 45.3761 9.33709L46.1458 11.7061C46.4451 12.6274 45.3907 13.3936 44.607 12.8242L42.5944 11.3617C42.244 11.1072 41.766 11.1072 41.4156 11.3617L39.403 12.8242C38.6193 13.3936 37.5648 12.6274 37.8642 11.7061L38.6338 9.33709C38.7677 8.92507 38.621 8.51302 38.2705 8.25847L36.258 6.79596C35.4743 6.22656 35.877 4.98694 36.8458 4.98694H39.3381C39.7713 4.98694 40.1553 4.70797 40.2891 4.29596L41.0489 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M58.0489 1.92705C58.3483 1.00574 59.6517 1.00574 59.9511 1.92705L60.7208 4.29596C60.8546 4.70797 61.2386 4.98694 61.6718 4.98694H64.1641C65.1328 4.98694 65.5356 6.22656 64.7519 6.79596L62.7394 8.25847C62.3889 8.51302 62.2423 8.92507 62.3761 9.33709L63.1458 11.7061C63.4451 12.6274 62.3907 13.3936 62.607 12.8242L60.5944 11.3617C60.244 11.1072 59.766 11.1072 59.4156 11.3617L57.403 12.8242C56.6193 13.3936 55.5648 12.6274 55.8642 11.7061L56.6338 9.33709C56.7677 8.92507 56.621 8.51302 56.2705 8.25847L54.258 6.79596C53.4743 6.22656 53.877 4.98694 54.8458 4.98694H57.3381C57.7713 4.98694 58.1553 4.70797 58.2891 4.29596L58.0489 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M75.0489 1.92705C75.3483 1.00574 76.6517 1.00574 76.9511 1.92705L77.7208 4.29596C77.8546 4.70797 78.2386 4.98694 78.6718 4.98694H81.1641C82.1328 4.98694 82.5356 6.22656 81.7519 6.79596L79.7394 8.25847C79.3889 8.51302 79.2423 8.92507 79.3761 9.33709L80.1458 11.7061C80.4451 12.6274 79.3907 13.3936 79.607 12.8242L77.5944 11.3617C77.244 11.1072 76.766 11.1072 76.4156 11.3617L74.403 12.8242C73.6193 13.3936 72.5648 12.6274 72.8642 11.7061L73.6338 9.33709C73.7677 8.92507 73.621 8.51302 73.2705 8.25847L71.258 6.79596C70.4743 6.22656 70.877 4.98694 71.8458 4.98694H74.3381C74.7713 4.98694 75.1553 4.70797 75.2891 4.29596L75.0489 1.92705Z" fill="#FFAE00"/>
+                                            </svg>
+                                            <span>5 ulduz</span>
+                                        </span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="radio" name="rating" value="4" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label pl-filter-opt__label--stars">
+                                            <svg width="88" height="16" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.04894 1.92705C7.3483 1.00574 8.6517 1.00574 8.9511 1.92705L9.72076 4.29596C9.85463 4.70797 10.2386 4.98694 10.6718 4.98694H13.1641C14.1328 4.98694 14.5356 6.22656 13.7519 6.79596L11.7394 8.25847C11.3889 8.51302 11.2423 8.92507 11.3761 9.33709L12.1458 11.7061C12.4451 12.6274 11.3907 13.3936 10.607 12.8242L8.59444 11.3617C8.24395 11.1072 7.76605 11.1072 7.41557 11.3617L5.40299 12.8242C4.61928 13.3936 3.5648 12.6274 3.86416 11.7061L4.63382 9.33709C4.7677 8.92507 4.62104 8.51302 4.27055 8.25847L2.25797 6.79596C1.47426 6.22656 1.87704 4.98694 2.84577 4.98694H5.33809C5.7713 4.98694 6.15527 4.70797 6.28914 4.29596L7.04894 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M24.0489 1.92705C24.3483 1.00574 25.6517 1.00574 25.9511 1.92705L26.7208 4.29596C26.8546 4.70797 27.2386 4.98694 27.6718 4.98694H30.1641C31.1328 4.98694 31.5356 6.22656 30.7519 6.79596L28.7394 8.25847C28.3889 8.51302 28.2423 8.92507 28.3761 9.33709L29.1458 11.7061C29.4451 12.6274 28.3907 13.3936 27.607 12.8242L25.5944 11.3617C25.244 11.1072 24.766 11.1072 24.4156 11.3617L22.403 12.8242C21.6193 13.3936 20.5648 12.6274 20.8642 11.7061L21.6338 9.33709C21.7677 8.92507 21.621 8.51302 21.2705 8.25847L19.258 6.79596C18.4743 6.22656 18.877 4.98694 19.8458 4.98694H22.3381C22.7713 4.98694 23.1553 4.70797 23.2891 4.29596L24.0489 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M41.0489 1.92705C41.3483 1.00574 42.6517 1.00574 42.9511 1.92705L43.7208 4.29596C43.8546 4.70797 44.2386 4.98694 44.6718 4.98694H47.1641C48.1328 4.98694 48.5356 6.22656 47.7519 6.79596L45.7394 8.25847C45.3889 8.51302 45.2423 8.92507 45.3761 9.33709L46.1458 11.7061C46.4451 12.6274 45.3907 13.3936 44.607 12.8242L42.5944 11.3617C42.244 11.1072 41.766 11.1072 41.4156 11.3617L39.403 12.8242C38.6193 13.3936 37.5648 12.6274 37.8642 11.7061L38.6338 9.33709C38.7677 8.92507 38.621 8.51302 38.2705 8.25847L36.258 6.79596C35.4743 6.22656 35.877 4.98694 36.8458 4.98694H39.3381C39.7713 4.98694 40.1553 4.70797 40.2891 4.29596L41.0489 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M58.0489 1.92705C58.3483 1.00574 59.6517 1.00574 59.9511 1.92705L60.7208 4.29596C60.8546 4.70797 61.2386 4.98694 61.6718 4.98694H64.1641C65.1328 4.98694 65.5356 6.22656 64.7519 6.79596L62.7394 8.25847C62.3889 8.51302 62.2423 8.92507 62.3761 9.33709L63.1458 11.7061C63.4451 12.6274 62.3907 13.3936 62.607 12.8242L60.5944 11.3617C60.244 11.1072 59.766 11.1072 59.4156 11.3617L57.403 12.8242C56.6193 13.3936 55.5648 12.6274 55.8642 11.7061L56.6338 9.33709C56.7677 8.92507 56.621 8.51302 56.2705 8.25847L54.258 6.79596C53.4743 6.22656 53.877 4.98694 54.8458 4.98694H57.3381C57.7713 4.98694 58.1553 4.70797 58.2891 4.29596L58.0489 1.92705Z" fill="#DADBDD"/>
+                                                <path d="M75.0489 1.92705C75.3483 1.00574 76.6517 1.00574 76.9511 1.92705L77.7208 4.29596C77.8546 4.70797 78.2386 4.98694 78.6718 4.98694H81.1641C82.1328 4.98694 82.5356 6.22656 81.7519 6.79596L79.7394 8.25847C79.3889 8.51302 79.2423 8.92507 79.3761 9.33709L80.1458 11.7061C80.4451 12.6274 79.3907 13.3936 79.607 12.8242L77.5944 11.3617C77.244 11.1072 76.766 11.1072 76.4156 11.3617L74.403 12.8242C73.6193 13.3936 72.5648 12.6274 72.8642 11.7061L73.6338 9.33709C73.7677 8.92507 73.621 8.51302 73.2705 8.25847L71.258 6.79596C70.4743 6.22656 70.877 4.98694 71.8458 4.98694H74.3381C74.7713 4.98694 75.1553 4.70797 75.2891 4.29596L75.0489 1.92705Z" fill="#DADBDD"/>
+                                            </svg>
+                                            <span>4+ ulduz</span>
+                                        </span>
+                                    </label>
+                                    <label class="pl-filter-opt">
+                                        <input type="radio" name="rating" value="3" class="pl-filter-opt__input">
+                                        <span class="pl-filter-opt__label pl-filter-opt__label--stars">
+                                            <svg width="88" height="16" viewBox="0 0 88 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M7.04894 1.92705C7.3483 1.00574 8.6517 1.00574 8.9511 1.92705L9.72076 4.29596C9.85463 4.70797 10.2386 4.98694 10.6718 4.98694H13.1641C14.1328 4.98694 14.5356 6.22656 13.7519 6.79596L11.7394 8.25847C11.3889 8.51302 11.2423 8.92507 11.3761 9.33709L12.1458 11.7061C12.4451 12.6274 11.3907 13.3936 10.607 12.8242L8.59444 11.3617C8.24395 11.1072 7.76605 11.1072 7.41557 11.3617L5.40299 12.8242C4.61928 13.3936 3.5648 12.6274 3.86416 11.7061L4.63382 9.33709C4.7677 8.92507 4.62104 8.51302 4.27055 8.25847L2.25797 6.79596C1.47426 6.22656 1.87704 4.98694 2.84577 4.98694H5.33809C5.7713 4.98694 6.15527 4.70797 6.28914 4.29596L7.04894 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M24.0489 1.92705C24.3483 1.00574 25.6517 1.00574 25.9511 1.92705L26.7208 4.29596C26.8546 4.70797 27.2386 4.98694 27.6718 4.98694H30.1641C31.1328 4.98694 31.5356 6.22656 30.7519 6.79596L28.7394 8.25847C28.3889 8.51302 28.2423 8.92507 28.3761 9.33709L29.1458 11.7061C29.4451 12.6274 28.3907 13.3936 27.607 12.8242L25.5944 11.3617C25.244 11.1072 24.766 11.1072 24.4156 11.3617L22.403 12.8242C21.6193 13.3936 20.5648 12.6274 20.8642 11.7061L21.6338 9.33709C21.7677 8.92507 21.621 8.51302 21.2705 8.25847L19.258 6.79596C18.4743 6.22656 18.877 4.98694 19.8458 4.98694H22.3381C22.7713 4.98694 23.1553 4.70797 23.2891 4.29596L24.0489 1.92705Z" fill="#FFAE00"/>
+                                                <path d="M41.0489 1.92705C41.3483 1.00574 42.6517 1.00574 42.9511 1.92705L43.7208 4.29596C43.8546 4.70797 44.2386 4.98694 44.6718 4.98694H47.1641C48.1328 4.98694 48.5356 6.22656 47.7519 6.79596L45.7394 8.25847C45.3889 8.51302 45.2423 8.92507 45.3761 9.33709L46.1458 11.7061C46.4451 12.6274 45.3907 13.3936 44.607 12.8242L42.5944 11.3617C42.244 11.1072 41.766 11.1072 41.4156 11.3617L39.403 12.8242C38.6193 13.3936 37.5648 12.6274 37.8642 11.7061L38.6338 9.33709C38.7677 8.92507 38.621 8.51302 38.2705 8.25847L36.258 6.79596C35.4743 6.22656 35.877 4.98694 36.8458 4.98694H39.3381C39.7713 4.98694 40.1553 4.70797 40.2891 4.29596L41.0489 1.92705Z" fill="#DADBDD"/>
+                                                <path d="M58.0489 1.92705C58.3483 1.00574 59.6517 1.00574 59.9511 1.92705L60.7208 4.29596C60.8546 4.70797 61.2386 4.98694 61.6718 4.98694H64.1641C65.1328 4.98694 65.5356 6.22656 64.7519 6.79596L62.7394 8.25847C62.3889 8.51302 62.2423 8.92507 62.3761 9.33709L63.1458 11.7061C63.4451 12.6274 62.3907 13.3936 62.607 12.8242L60.5944 11.3617C60.244 11.1072 59.766 11.1072 59.4156 11.3617L57.403 12.8242C56.6193 13.3936 55.5648 12.6274 55.8642 11.7061L56.6338 9.33709C56.7677 8.92507 56.621 8.51302 56.2705 8.25847L54.258 6.79596C53.4743 6.22656 53.877 4.98694 54.8458 4.98694H57.3381C57.7713 4.98694 58.1553 4.70797 58.2891 4.29596L58.0489 1.92705Z" fill="#DADBDD"/>
+                                                <path d="M75.0489 1.92705C75.3483 1.00574 76.6517 1.00574 76.9511 1.92705L77.7208 4.29596C77.8546 4.70797 78.2386 4.98694 78.6718 4.98694H81.1641C82.1328 4.98694 82.5356 6.22656 81.7519 6.79596L79.7394 8.25847C79.3889 8.51302 79.2423 8.92507 79.3761 9.33709L80.1458 11.7061C80.4451 12.6274 79.3907 13.3936 79.607 12.8242L77.5944 11.3617C77.244 11.1072 76.766 11.1072 76.4156 11.3617L74.403 12.8242C73.6193 13.3936 72.5648 12.6274 72.8642 11.7061L73.6338 9.33709C73.7677 8.92507 73.621 8.51302 73.2705 8.25847L71.258 6.79596C70.4743 6.22656 70.877 4.98694 71.8458 4.98694H74.3381C74.7713 4.98694 75.1553 4.70797 75.2891 4.29596L75.0489 1.92705Z" fill="#DADBDD"/>
+                                            </svg>
+                                            <span>3+ ulduz</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                    </aside>
+
+                    <!-- Products content -->
+                    <div class="pl-page__content">
+                        <div class="pl-page__grid">
+
+                            <!-- Card 1 -->
+                            <div class="products__card">
+                                <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER CB200B İkirəngli 210W LED səhifəsinə keçid"></a>
+                                <div class="products__img-wrap">
+                                    <img loading="lazy" decoding="async" class="products__img" src="assets/images/932a5c73d09bcfdf84ce95ddccce7e37fd0dcb29.png" alt="NEEWER CB200B" />
+                                </div>
+                                <div class="products__info">
+                                    <div class="products__body-header">
+                                        <span class="products__category">Led işıq</span>
+                                        <h4 class="products__name">NEEWER CB200B İkirəngli 210W LED</h4>
+                                    </div>
+                                    <div class="products__meta">
+                                        <div class="products__stars">
+                                            <svg width="108" height="20" viewBox="0 0 108 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M31.0489 2.92705C31.3483 2.00574 32.6517 2.00574 32.9511 2.92705L34.0206 6.21885C34.1545 6.63087 34.5385 6.90983 34.9717 6.90983H38.4329C39.4016 6.90983 39.8044 8.14945 39.0207 8.71885L36.2205 10.7533C35.87 11.0079 35.7234 11.4593 35.8572 11.8713L36.9268 15.1631C37.2261 16.0844 36.1717 16.8506 35.388 16.2812L32.5878 14.2467C32.2373 13.9921 31.7627 13.9921 31.4122 14.2467L28.612 16.2812C27.8283 16.8506 26.7739 16.0844 27.0732 15.1631L28.1428 11.8713C28.2766 11.4593 28.13 11.0079 27.7795 10.7533L24.9793 8.71885C24.1956 8.14945 24.5984 6.90983 25.5671 6.90983H29.0283C29.4615 6.90983 29.8455 6.63087 29.9794 6.21885L31.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M53.0489 2.92705C53.3483 2.00574 54.6517 2.00574 54.9511 2.92705L56.0206 6.21885C56.1545 6.63087 56.5385 6.90983 56.9717 6.90983H60.4329C61.4016 6.90983 61.8044 8.14945 61.0207 8.71885L58.2205 10.7533C57.87 11.0079 57.7234 11.4593 57.8572 11.8713L58.9268 15.1631C59.2261 16.0844 58.1717 16.8506 57.388 16.2812L54.5878 14.2467C54.2373 13.9921 53.7627 13.9921 53.4122 14.2467L50.612 16.2812C49.8283 16.8506 48.7739 16.0844 49.0732 15.1631L50.1428 11.8713C50.2766 11.4593 50.13 11.0079 49.7795 10.7533L46.9793 8.71885C46.1956 8.14945 46.5984 6.90983 47.5671 6.90983H51.0283C51.4615 6.90983 51.8455 6.63087 51.9794 6.21885L53.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M75.0489 2.92705C75.3483 2.00574 76.6517 2.00574 76.9511 2.92705L78.0206 6.21885C78.1545 6.63087 78.5385 6.90983 78.9717 6.90983H82.4329C83.4016 6.90983 83.8044 8.14945 83.0207 8.71885L80.2205 10.7533C79.87 11.0079 79.7234 11.4593 79.8572 11.8713L80.9268 15.1631C81.2261 16.0844 80.1717 16.8506 79.388 16.2812L76.5878 14.2467C76.2373 13.9921 75.7627 13.9921 75.4122 14.2467L72.612 16.2812C71.8283 16.8506 70.7739 16.0844 71.0732 15.1631L72.1428 11.8713C72.2766 11.4593 72.13 11.0079 71.7795 10.7533L68.9793 8.71885C68.1956 8.14945 68.5984 6.90983 69.5671 6.90983H73.0283C73.4615 6.90983 73.8455 6.63087 73.9794 6.21885L75.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M97.0489 2.92705C97.3483 2.00574 98.6517 2.00574 98.9511 2.92705L100.021 6.21885C100.155 6.63087 100.538 6.90983 100.972 6.90983H104.433C105.402 6.90983 105.804 8.14945 105.021 8.71885L102.22 10.7533C101.87 11.0079 101.723 11.4593 101.857 11.8713L102.927 15.1631C103.226 16.0844 102.172 16.8506 101.388 16.2812L98.5878 14.2467C98.2373 13.9921 97.7627 13.9921 97.4122 14.2467L94.612 16.2812C93.8283 16.8506 92.7739 16.0844 93.0732 15.1631L94.1428 11.8713C94.2766 11.4593 94.13 11.0079 93.7795 10.7533L90.9793 8.71885C90.1956 8.14945 90.5984 6.90983 91.5671 6.90983H95.0283C95.4615 6.90983 95.8455 6.63087 95.9794 6.21885L97.0489 2.92705Z" fill="#FFAE00"/>
+                                            </svg>
+                                        </div>
+                                        <span class="products__badge products__badge--blue">Stokda var</span>
+                                    </div>
+                                    <div class="products__footer">
+                                        <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17.1091 19.267C16.9071 19.267 16.7431 19.431 16.7451 19.633C16.7451 19.835 16.9091 19.999 17.1111 19.999C17.3131 19.999 17.4771 19.835 17.4771 19.633C17.4761 19.431 17.3121 19.267 17.1091 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.697 19.267C8.495 19.267 8.331 19.431 8.333 19.633C8.331 19.836 8.496 20 8.698 20C8.9 20 9.064 19.836 9.064 19.634C9.064 19.431 8.9 19.267 8.697 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            İndi al
+                                        </a>
+                                        <span class="products__price">600.00 AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="products__card">
+                                <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER CB200B İkirəngli 210W LED səhifəsinə keçid"></a>
+                                <div class="products__img-wrap">
+                                    <img loading="lazy" decoding="async" class="products__img" src="assets/images/538ed5fb4d0aa670fe02bb14eb3eb90df5809c58.png" alt="NEEWER CB200B" />
+                                </div>
+                                <div class="products__info">
+                                    <div class="products__body-header">
+                                        <span class="products__category">Led işıq</span>
+                                        <h4 class="products__name">NEEWER CB200B İkirəngli 210W LED</h4>
+                                    </div>
+                                    <div class="products__meta">
+                                        <div class="products__stars">
+                                            <svg width="108" height="20" viewBox="0 0 108 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M31.0489 2.92705C31.3483 2.00574 32.6517 2.00574 32.9511 2.92705L34.0206 6.21885C34.1545 6.63087 34.5385 6.90983 34.9717 6.90983H38.4329C39.4016 6.90983 39.8044 8.14945 39.0207 8.71885L36.2205 10.7533C35.87 11.0079 35.7234 11.4593 35.8572 11.8713L36.9268 15.1631C37.2261 16.0844 36.1717 16.8506 35.388 16.2812L32.5878 14.2467C32.2373 13.9921 31.7627 13.9921 31.4122 14.2467L28.612 16.2812C27.8283 16.8506 26.7739 16.0844 27.0732 15.1631L28.1428 11.8713C28.2766 11.4593 28.13 11.0079 27.7795 10.7533L24.9793 8.71885C24.1956 8.14945 24.5984 6.90983 25.5671 6.90983H29.0283C29.4615 6.90983 29.8455 6.63087 29.9794 6.21885L31.0489 2.92705Z" fill="#DADBDD"/>
+                                                <path d="M53.0489 2.92705C53.3483 2.00574 54.6517 2.00574 54.9511 2.92705L56.0206 6.21885C56.1545 6.63087 56.5385 6.90983 56.9717 6.90983H60.4329C61.4016 6.90983 61.8044 8.14945 61.0207 8.71885L58.2205 10.7533C57.87 11.0079 57.7234 11.4593 57.8572 11.8713L58.9268 15.1631C59.2261 16.0844 58.1717 16.8506 57.388 16.2812L54.5878 14.2467C54.2373 13.9921 53.7627 13.9921 53.4122 14.2467L50.612 16.2812C49.8283 16.8506 48.7739 16.0844 49.0732 15.1631L50.1428 11.8713C50.2766 11.4593 50.13 11.0079 49.7795 10.7533L46.9793 8.71885C46.1956 8.14945 46.5984 6.90983 47.5671 6.90983H51.0283C51.4615 6.90983 51.8455 6.63087 51.9794 6.21885L53.0489 2.92705Z" fill="#DADBDD"/>
+                                                <path d="M75.0489 2.92705C75.3483 2.00574 76.6517 2.00574 76.9511 2.92705L78.0206 6.21885C78.1545 6.63087 78.5385 6.90983 78.9717 6.90983H82.4329C83.4016 6.90983 83.8044 8.14945 83.0207 8.71885L80.2205 10.7533C79.87 11.0079 79.7234 11.4593 79.8572 11.8713L80.9268 15.1631C81.2261 16.0844 80.1717 16.8506 79.388 16.2812L76.5878 14.2467C76.2373 13.9921 75.7627 13.9921 75.4122 14.2467L72.612 16.2812C71.8283 16.8506 70.7739 16.0844 71.0732 15.1631L72.1428 11.8713C72.2766 11.4593 72.13 11.0079 71.7795 10.7533L68.9793 8.71885C68.1956 8.14945 68.5984 6.90983 69.5671 6.90983H73.0283C73.4615 6.90983 73.8455 6.63087 73.9794 6.21885L75.0489 2.92705Z" fill="#DADBDD"/>
+                                                <path d="M97.0489 2.92705C97.3483 2.00574 98.6517 2.00574 98.9511 2.92705L100.021 6.21885C100.155 6.63087 100.538 6.90983 100.972 6.90983H104.433C105.402 6.90983 105.804 8.14945 105.021 8.71885L102.22 10.7533C101.87 11.0079 101.723 11.4593 101.857 11.8713L102.927 15.1631C103.226 16.0844 102.172 16.8506 101.388 16.2812L98.5878 14.2467C98.2373 13.9921 97.7627 13.9921 97.4122 14.2467L94.612 16.2812C93.8283 16.8506 92.7739 16.0844 93.0732 15.1631L94.1428 11.8713C94.2766 11.4593 94.13 11.0079 93.7795 10.7533L90.9793 8.71885C90.1956 8.14945 90.5984 6.90983 91.5671 6.90983H95.0283C95.4615 6.90983 95.8455 6.63087 95.9794 6.21885L97.0489 2.92705Z" fill="#DADBDD"/>
+                                            </svg>
+                                        </div>
+                                        <span class="products__badge products__badge--yellow">Tezliklə</span>
+                                    </div>
+                                    <div class="products__footer">
+                                        <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17.1091 19.267C16.9071 19.267 16.7431 19.431 16.7451 19.633C16.7451 19.835 16.9091 19.999 17.1111 19.999C17.3131 19.999 17.4771 19.835 17.4771 19.633C17.4761 19.431 17.3121 19.267 17.1091 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.697 19.267C8.495 19.267 8.331 19.431 8.333 19.633C8.331 19.836 8.496 20 8.698 20C8.9 20 9.064 19.836 9.064 19.634C9.064 19.431 8.9 19.267 8.697 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            İndi al
+                                        </a>
+                                        <span class="products__price">600.00 AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="products__card">
+                                <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER CB200B İkirəngli 210W LED səhifəsinə keçid"></a>
+                                <div class="products__img-wrap">
+                                    <img loading="lazy" decoding="async" class="products__img" src="assets/images/d03a5fe2e8ed842952963fee9335660e2d963f77.png" alt="NEEWER Softbox" />
+                                </div>
+                                <div class="products__info">
+                                    <div class="products__body-header">
+                                        <span class="products__category">Studiya</span>
+                                        <h4 class="products__name">NEEWER 660 PRO RGB LED Panel İşıq</h4>
+                                    </div>
+                                    <div class="products__meta">
+                                        <div class="products__stars">
+                                            <svg width="108" height="20" viewBox="0 0 108 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M31.0489 2.92705C31.3483 2.00574 32.6517 2.00574 32.9511 2.92705L34.0206 6.21885C34.1545 6.63087 34.5385 6.90983 34.9717 6.90983H38.4329C39.4016 6.90983 39.8044 8.14945 39.0207 8.71885L36.2205 10.7533C35.87 11.0079 35.7234 11.4593 35.8572 11.8713L36.9268 15.1631C37.2261 16.0844 36.1717 16.8506 35.388 16.2812L32.5878 14.2467C32.2373 13.9921 31.7627 13.9921 31.4122 14.2467L28.612 16.2812C27.8283 16.8506 26.7739 16.0844 27.0732 15.1631L28.1428 11.8713C28.2766 11.4593 28.13 11.0079 27.7795 10.7533L24.9793 8.71885C24.1956 8.14945 24.5984 6.90983 25.5671 6.90983H29.0283C29.4615 6.90983 29.8455 6.63087 29.9794 6.21885L31.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M53.0489 2.92705C53.3483 2.00574 54.6517 2.00574 54.9511 2.92705L56.0206 6.21885C56.1545 6.63087 56.5385 6.90983 56.9717 6.90983H60.4329C61.4016 6.90983 61.8044 8.14945 61.0207 8.71885L58.2205 10.7533C57.87 11.0079 57.7234 11.4593 57.8572 11.8713L58.9268 15.1631C59.2261 16.0844 58.1717 16.8506 57.388 16.2812L54.5878 14.2467C54.2373 13.9921 53.7627 13.9921 53.4122 14.2467L50.612 16.2812C49.8283 16.8506 48.7739 16.0844 49.0732 15.1631L50.1428 11.8713C50.2766 11.4593 50.13 11.0079 49.7795 10.7533L46.9793 8.71885C46.1956 8.14945 46.5984 6.90983 47.5671 6.90983H51.0283C51.4615 6.90983 51.8455 6.63087 51.9794 6.21885L53.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M75.0489 2.92705C75.3483 2.00574 76.6517 2.00574 76.9511 2.92705L78.0206 6.21885C78.1545 6.63087 78.5385 6.90983 78.9717 6.90983H82.4329C83.4016 6.90983 83.8044 8.14945 83.0207 8.71885L80.2205 10.7533C79.87 11.0079 79.7234 11.4593 79.8572 11.8713L80.9268 15.1631C81.2261 16.0844 80.1717 16.8506 79.388 16.2812L76.5878 14.2467C76.2373 13.9921 75.7627 13.9921 75.4122 14.2467L72.612 16.2812C71.8283 16.8506 70.7739 16.0844 71.0732 15.1631L72.1428 11.8713C72.2766 11.4593 72.13 11.0079 71.7795 10.7533L68.9793 8.71885C68.1956 8.14945 68.5984 6.90983 69.5671 6.90983H73.0283C73.4615 6.90983 73.8455 6.63087 73.9794 6.21885L75.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M97.0489 2.92705C97.3483 2.00574 98.6517 2.00574 98.9511 2.92705L100.021 6.21885C100.155 6.63087 100.538 6.90983 100.972 6.90983H104.433C105.402 6.90983 105.804 8.14945 105.021 8.71885L102.22 10.7533C101.87 11.0079 101.723 11.4593 101.857 11.8713L102.927 15.1631C103.226 16.0844 102.172 16.8506 101.388 16.2812L98.5878 14.2467C98.2373 13.9921 97.7627 13.9921 97.4122 14.2467L94.612 16.2812C93.8283 16.8506 92.7739 16.0844 93.0732 15.1631L94.1428 11.8713C94.2766 11.4593 94.13 11.0079 93.7795 10.7533L90.9793 8.71885C90.1956 8.14945 90.5984 6.90983 91.5671 6.90983H95.0283C95.4615 6.90983 95.8455 6.63087 95.9794 6.21885L97.0489 2.92705Z" fill="#FFAE00"/>
+                                            </svg>
+                                        </div>
+                                        <span class="products__badge products__badge--green">Sifarişlə</span>
+                                    </div>
+                                    <div class="products__footer">
+                                        <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17.1091 19.267C16.9071 19.267 16.7431 19.431 16.7451 19.633C16.7451 19.835 16.9091 19.999 17.1111 19.999C17.3131 19.999 17.4771 19.835 17.4771 19.633C17.4761 19.431 17.3121 19.267 17.1091 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.697 19.267C8.495 19.267 8.331 19.431 8.333 19.633C8.331 19.836 8.496 20 8.698 20C8.9 20 9.064 19.836 9.064 19.634C9.064 19.431 8.9 19.267 8.697 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            İndi al
+                                        </a>
+                                        <span class="products__price">450.00 AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="products__card">
+                                <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER CB200B İkirəngli 210W LED səhifəsinə keçid"></a>
+                                <div class="products__img-wrap">
+                                    <img loading="lazy" decoding="async" class="products__img" src="assets/images/aab16cae23c7ca205e773a150d533e075c77f81f.png" alt="NEEWER LED" />
+                                </div>
+                                <div class="products__info">
+                                    <div class="products__body-header">
+                                        <span class="products__category">Led işıq</span>
+                                        <h4 class="products__name">NEEWER 660 PRO İkirəngli LED Panel</h4>
+                                    </div>
+                                    <div class="products__meta">
+                                        <div class="products__stars">
+                                            <svg width="108" height="20" viewBox="0 0 108 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M31.0489 2.92705C31.3483 2.00574 32.6517 2.00574 32.9511 2.92705L34.0206 6.21885C34.1545 6.63087 34.5385 6.90983 34.9717 6.90983H38.4329C39.4016 6.90983 39.8044 8.14945 39.0207 8.71885L36.2205 10.7533C35.87 11.0079 35.7234 11.4593 35.8572 11.8713L36.9268 15.1631C37.2261 16.0844 36.1717 16.8506 35.388 16.2812L32.5878 14.2467C32.2373 13.9921 31.7627 13.9921 31.4122 14.2467L28.612 16.2812C27.8283 16.8506 26.7739 16.0844 27.0732 15.1631L28.1428 11.8713C28.2766 11.4593 28.13 11.0079 27.7795 10.7533L24.9793 8.71885C24.1956 8.14945 24.5984 6.90983 25.5671 6.90983H29.0283C29.4615 6.90983 29.8455 6.63087 29.9794 6.21885L31.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M53.0489 2.92705C53.3483 2.00574 54.6517 2.00574 54.9511 2.92705L56.0206 6.21885C56.1545 6.63087 56.5385 6.90983 56.9717 6.90983H60.4329C61.4016 6.90983 61.8044 8.14945 61.0207 8.71885L58.2205 10.7533C57.87 11.0079 57.7234 11.4593 57.8572 11.8713L58.9268 15.1631C59.2261 16.0844 58.1717 16.8506 57.388 16.2812L54.5878 14.2467C54.2373 13.9921 53.7627 13.9921 53.4122 14.2467L50.612 16.2812C49.8283 16.8506 48.7739 16.0844 49.0732 15.1631L50.1428 11.8713C50.2766 11.4593 50.13 11.0079 49.7795 10.7533L46.9793 8.71885C46.1956 8.14945 46.5984 6.90983 47.5671 6.90983H51.0283C51.4615 6.90983 51.8455 6.63087 51.9794 6.21885L53.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M75.0489 2.92705C75.3483 2.00574 76.6517 2.00574 76.9511 2.92705L78.0206 6.21885C78.1545 6.63087 78.5385 6.90983 78.9717 6.90983H82.4329C83.4016 6.90983 83.8044 8.14945 83.0207 8.71885L80.2205 10.7533C79.87 11.0079 79.7234 11.4593 79.8572 11.8713L80.9268 15.1631C81.2261 16.0844 80.1717 16.8506 79.388 16.2812L76.5878 14.2467C76.2373 13.9921 75.7627 13.9921 75.4122 14.2467L72.612 16.2812C71.8283 16.8506 70.7739 16.0844 71.0732 15.1631L72.1428 11.8713C72.2766 11.4593 72.13 11.0079 71.7795 10.7533L68.9793 8.71885C68.1956 8.14945 68.5984 6.90983 69.5671 6.90983H73.0283C73.4615 6.90983 73.8455 6.63087 73.9794 6.21885L75.0489 2.92705Z" fill="#DADBDD"/>
+                                                <path d="M97.0489 2.92705C97.3483 2.00574 98.6517 2.00574 98.9511 2.92705L100.021 6.21885C100.155 6.63087 100.538 6.90983 100.972 6.90983H104.433C105.402 6.90983 105.804 8.14945 105.021 8.71885L102.22 10.7533C101.87 11.0079 101.723 11.4593 101.857 11.8713L102.927 15.1631C103.226 16.0844 102.172 16.8506 101.388 16.2812L98.5878 14.2467C98.2373 13.9921 97.7627 13.9921 97.4122 14.2467L94.612 16.2812C93.8283 16.8506 92.7739 16.0844 93.0732 15.1631L94.1428 11.8713C94.2766 11.4593 94.13 11.0079 93.7795 10.7533L90.9793 8.71885C90.1956 8.14945 90.5984 6.90983 91.5671 6.90983H95.0283C95.4615 6.90983 95.8455 6.63087 95.9794 6.21885L97.0489 2.92705Z" fill="#DADBDD"/>
+                                            </svg>
+                                        </div>
+                                        <span class="products__badge products__badge--blue">Stokda var</span>
+                                    </div>
+                                    <div class="products__footer">
+                                        <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17.1091 19.267C16.9071 19.267 16.7431 19.431 16.7451 19.633C16.7451 19.835 16.9091 19.999 17.1111 19.999C17.3131 19.999 17.4771 19.835 17.4771 19.633C17.4761 19.431 17.3121 19.267 17.1091 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.697 19.267C8.495 19.267 8.331 19.431 8.333 19.633C8.331 19.836 8.496 20 8.698 20C8.9 20 9.064 19.836 9.064 19.634C9.064 19.431 8.9 19.267 8.697 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            İndi al
+                                        </a>
+                                        <span class="products__price">350.00 AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="products__card">
+                                <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER CB200B İkirəngli 210W LED səhifəsinə keçid"></a>
+                                <div class="products__img-wrap">
+                                    <img loading="lazy" decoding="async" class="products__img" src="assets/images/932a5c73d09bcfdf84ce95ddccce7e37fd0dcb29.png" alt="NEEWER CB200B" />
+                                </div>
+                                <div class="products__info">
+                                    <div class="products__body-header">
+                                        <span class="products__category">Led işıq</span>
+                                        <h4 class="products__name">NEEWER SL-80 RGB LED Video İşıq</h4>
+                                    </div>
+                                    <div class="products__meta">
+                                        <div class="products__stars">
+                                            <svg width="108" height="20" viewBox="0 0 108 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M31.0489 2.92705C31.3483 2.00574 32.6517 2.00574 32.9511 2.92705L34.0206 6.21885C34.1545 6.63087 34.5385 6.90983 34.9717 6.90983H38.4329C39.4016 6.90983 39.8044 8.14945 39.0207 8.71885L36.2205 10.7533C35.87 11.0079 35.7234 11.4593 35.8572 11.8713L36.9268 15.1631C37.2261 16.0844 36.1717 16.8506 35.388 16.2812L32.5878 14.2467C32.2373 13.9921 31.7627 13.9921 31.4122 14.2467L28.612 16.2812C27.8283 16.8506 26.7739 16.0844 27.0732 15.1631L28.1428 11.8713C28.2766 11.4593 28.13 11.0079 27.7795 10.7533L24.9793 8.71885C24.1956 8.14945 24.5984 6.90983 25.5671 6.90983H29.0283C29.4615 6.90983 29.8455 6.63087 29.9794 6.21885L31.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M53.0489 2.92705C53.3483 2.00574 54.6517 2.00574 54.9511 2.92705L56.0206 6.21885C56.1545 6.63087 56.5385 6.90983 56.9717 6.90983H60.4329C61.4016 6.90983 61.8044 8.14945 61.0207 8.71885L58.2205 10.7533C57.87 11.0079 57.7234 11.4593 57.8572 11.8713L58.9268 15.1631C59.2261 16.0844 58.1717 16.8506 57.388 16.2812L54.5878 14.2467C54.2373 13.9921 53.7627 13.9921 53.4122 14.2467L50.612 16.2812C49.8283 16.8506 48.7739 16.0844 49.0732 15.1631L50.1428 11.8713C50.2766 11.4593 50.13 11.0079 49.7795 10.7533L46.9793 8.71885C46.1956 8.14945 46.5984 6.90983 47.5671 6.90983H51.0283C51.4615 6.90983 51.8455 6.63087 51.9794 6.21885L53.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M75.0489 2.92705C75.3483 2.00574 76.6517 2.00574 76.9511 2.92705L78.0206 6.21885C78.1545 6.63087 78.5385 6.90983 78.9717 6.90983H82.4329C83.4016 6.90983 83.8044 8.14945 83.0207 8.71885L80.2205 10.7533C79.87 11.0079 79.7234 11.4593 79.8572 11.8713L80.9268 15.1631C81.2261 16.0844 80.1717 16.8506 79.388 16.2812L76.5878 14.2467C76.2373 13.9921 75.7627 13.9921 75.4122 14.2467L72.612 16.2812C71.8283 16.8506 70.7739 16.0844 71.0732 15.1631L72.1428 11.8713C72.2766 11.4593 72.13 11.0079 71.7795 10.7533L68.9793 8.71885C68.1956 8.14945 68.5984 6.90983 69.5671 6.90983H73.0283C73.4615 6.90983 73.8455 6.63087 73.9794 6.21885L75.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M97.0489 2.92705C97.3483 2.00574 98.6517 2.00574 98.9511 2.92705L100.021 6.21885C100.155 6.63087 100.538 6.90983 100.972 6.90983H104.433C105.402 6.90983 105.804 8.14945 105.021 8.71885L102.22 10.7533C101.87 11.0079 101.723 11.4593 101.857 11.8713L102.927 15.1631C103.226 16.0844 102.172 16.8506 101.388 16.2812L98.5878 14.2467C98.2373 13.9921 97.7627 13.9921 97.4122 14.2467L94.612 16.2812C93.8283 16.8506 92.7739 16.0844 93.0732 15.1631L94.1428 11.8713C94.2766 11.4593 94.13 11.0079 93.7795 10.7533L90.9793 8.71885C90.1956 8.14945 90.5984 6.90983 91.5671 6.90983H95.0283C95.4615 6.90983 95.8455 6.63087 95.9794 6.21885L97.0489 2.92705Z" fill="#DADBDD"/>
+                                            </svg>
+                                        </div>
+                                        <span class="products__badge products__badge--blue">Stokda var</span>
+                                    </div>
+                                    <div class="products__footer">
+                                        <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17.1091 19.267C16.9071 19.267 16.7431 19.431 16.7451 19.633C16.7451 19.835 16.9091 19.999 17.1111 19.999C17.3131 19.999 17.4771 19.835 17.4771 19.633C17.4761 19.431 17.3121 19.267 17.1091 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.697 19.267C8.495 19.267 8.331 19.431 8.333 19.633C8.331 19.836 8.496 20 8.698 20C8.9 20 9.064 19.836 9.064 19.634C9.064 19.431 8.9 19.267 8.697 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            İndi al
+                                        </a>
+                                        <span class="products__price">280.00 AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="products__card">
+                                <a class="card-link-overlay" href="product-details.html" aria-label="NEEWER Tripod səhifəsinə keçid"></a>
+                                <div class="products__img-wrap">
+                                    <img loading="lazy" decoding="async" class="products__img" src="assets/images/538ed5fb4d0aa670fe02bb14eb3eb90df5809c58.png" alt="NEEWER Tripod" />
+                                </div>
+                                <div class="products__info">
+                                    <div class="products__body-header">
+                                        <span class="products__category">Tripod</span>
+                                        <h4 class="products__name">NEEWER 77" Kamera Tripod Monopod</h4>
+                                    </div>
+                                    <div class="products__meta">
+                                        <div class="products__stars">
+                                            <svg width="108" height="20" viewBox="0 0 108 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.04894 2.92705C9.3483 2.00574 10.6517 2.00574 10.9511 2.92705L12.0206 6.21885C12.1545 6.63087 12.5385 6.90983 12.9717 6.90983H16.4329C17.4016 6.90983 17.8044 8.14945 17.0207 8.71885L14.2205 10.7533C13.87 11.0079 13.7234 11.4593 13.8572 11.8713L14.9268 15.1631C15.2261 16.0844 14.1717 16.8506 13.388 16.2812L10.5878 14.2467C10.2373 13.9921 9.7627 13.9921 9.41221 14.2467L6.61204 16.2812C5.82833 16.8506 4.77385 16.0844 5.0732 15.1631L6.14277 11.8713C6.27665 11.4593 6.12999 11.0079 5.7795 10.7533L2.97933 8.71885C2.19562 8.14945 2.59839 6.90983 3.56712 6.90983H7.02832C7.46154 6.90983 7.8455 6.63087 7.97937 6.21885L9.04894 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M31.0489 2.92705C31.3483 2.00574 32.6517 2.00574 32.9511 2.92705L34.0206 6.21885C34.1545 6.63087 34.5385 6.90983 34.9717 6.90983H38.4329C39.4016 6.90983 39.8044 8.14945 39.0207 8.71885L36.2205 10.7533C35.87 11.0079 35.7234 11.4593 35.8572 11.8713L36.9268 15.1631C37.2261 16.0844 36.1717 16.8506 35.388 16.2812L32.5878 14.2467C32.2373 13.9921 31.7627 13.9921 31.4122 14.2467L28.612 16.2812C27.8283 16.8506 26.7739 16.0844 27.0732 15.1631L28.1428 11.8713C28.2766 11.4593 28.13 11.0079 27.7795 10.7533L24.9793 8.71885C24.1956 8.14945 24.5984 6.90983 25.5671 6.90983H29.0283C29.4615 6.90983 29.8455 6.63087 29.9794 6.21885L31.0489 2.92705Z" fill="#FFAE00"/>
+                                                <path d="M53.0489 2.92705C53.3483 2.00574 54.6517 2.00574 54.9511 2.92705L56.0206 6.21885C56.1545 6.63087 56.5385 6.90983 56.9717 6.90983H60.4329C61.4016 6.90983 61.8044 8.14945 61.0207 8.71885L58.2205 10.7533C57.87 11.0079 57.7234 11.4593 57.8572 11.8713L58.9268 15.1631C59.2261 16.0844 58.1717 16.8506 57.388 16.2812L54.5878 14.2467C54.2373 13.9921 53.7627 13.9921 53.4122 14.2467L50.612 16.2812C49.8283 16.8506 48.7739 16.0844 49.0732 15.1631L50.1428 11.8713C50.2766 11.4593 50.13 11.0079 49.7795 10.7533L46.9793 8.71885C46.1956 8.14945 46.5984 6.90983 47.5671 6.90983H51.0283C51.4615 6.90983 51.8455 6.63087 51.9794 6.21885L53.0489 2.92705Z" fill="#DADBDD"/>
+                                                <path d="M75.0489 2.92705C75.3483 2.00574 76.6517 2.00574 76.9511 2.92705L78.0206 6.21885C78.1545 6.63087 78.5385 6.90983 78.9717 6.90983H82.4329C83.4016 6.90983 83.8044 8.14945 83.0207 8.71885L80.2205 10.7533C79.87 11.0079 79.7234 11.4593 79.8572 11.8713L80.9268 15.1631C81.2261 16.0844 80.1717 16.8506 79.388 16.2812L76.5878 14.2467C76.2373 13.9921 75.7627 13.9921 75.4122 14.2467L72.612 16.2812C71.8283 16.8506 70.7739 16.0844 71.0732 15.1631L72.1428 11.8713C72.2766 11.4593 72.13 11.0079 71.7795 10.7533L68.9793 8.71885C68.1956 8.14945 68.5984 6.90983 69.5671 6.90983H73.0283C73.4615 6.90983 73.8455 6.63087 73.9794 6.21885L75.0489 2.92705Z" fill="#DADBDD"/>
+                                                <path d="M97.0489 2.92705C97.3483 2.00574 98.6517 2.00574 98.9511 2.92705L100.021 6.21885C100.155 6.63087 100.538 6.90983 100.972 6.90983H104.433C105.402 6.90983 105.804 8.14945 105.021 8.71885L102.22 10.7533C101.87 11.0079 101.723 11.4593 101.857 11.8713L102.927 15.1631C103.226 16.0844 102.172 16.8506 101.388 16.2812L98.5878 14.2467C98.2373 13.9921 97.7627 13.9921 97.4122 14.2467L94.612 16.2812C93.8283 16.8506 92.7739 16.0844 93.0732 15.1631L94.1428 11.8713C94.2766 11.4593 94.13 11.0079 93.7795 10.7533L90.9793 8.71885C90.1956 8.14945 90.5984 6.90983 91.5671 6.90983H95.0283C95.4615 6.90983 95.8455 6.63087 95.9794 6.21885L97.0489 2.92705Z" fill="#DADBDD"/>
+                                            </svg>
+                                        </div>
+                                        <span class="products__badge products__badge--red">Tükəndi</span>
+                                    </div>
+                                    <div class="products__footer">
+                                        <a href="product-details.html" class="products__btn is-visual-link" aria-hidden="true" tabindex="-1">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.40902 14.246L5.87402 7H18.5C19.151 7 19.628 7.611 19.47 8.243L18.122 13.635C17.917 14.454 17.221 15.056 16.381 15.14L9.56502 15.822C8.54902 15.923 7.62002 15.244 7.40902 14.246Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M5.874 7L5.224 4H3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M17.1091 19.267C16.9071 19.267 16.7431 19.431 16.7451 19.633C16.7451 19.835 16.9091 19.999 17.1111 19.999C17.3131 19.999 17.4771 19.835 17.4771 19.633C17.4761 19.431 17.3121 19.267 17.1091 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M8.697 19.267C8.495 19.267 8.331 19.431 8.333 19.633C8.331 19.836 8.496 20 8.698 20C8.9 20 9.064 19.836 9.064 19.634C9.064 19.431 8.9 19.267 8.697 19.267" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            İndi al
+                                        </a>
+                                        <span class="products__price">150.00 AZN</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav class="pl-pagination" aria-label="Səhifə naviqasiyası">
+                            <button class="pl-pagination__btn" disabled aria-label="Əvvəlki səhifə">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <button class="pl-pagination__num is-active" aria-current="page">1</button>
+                            <button class="pl-pagination__num">2</button>
+                            <button class="pl-pagination__num">3</button>
+                            <button class="pl-pagination__btn" aria-label="Növbəti səhifə">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </nav>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- * PRODUCT LIST PAGE END * -->
+    </main>
+
+    <!-- @include('components.footer') -->
+    <!-- * FOOTER * -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <!-- LEFT -->
+                <div class="footer__brand">
+                    <a class="footer__logo" href="#">
+                        <img loading="eager" decoding="async" class="footer__logo-img" src="assets/images/logowhite.png" alt="İkiliİki">
+                    </a>
+
+                    <div class="footer__desc-follow">
+                        <p class="footer__desc">
+                            Azərbaycanda elektron kommersiyanın inkişaf etdirmək və müştəri məmnuniyyətini ən yüksək
+                            səviyyədə təmin
+                            etmək bizim üçün çox önəmlidir.
+                        </p>
+
+                        <div class="footer__follow">
+                            <h4 class="footer__title footer__title--sm">Bizi izləyin</h4>
+
+                            <div class="footer__social">
+                                <a class="footer__social-link" href="#" aria-label="WhatsApp">
+                                    <svg class="footer__social-ico" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M18.2039 5.76205C16.5579 4.11505 14.3689 3.20705 12.0369 3.20605C7.2299 3.20605 3.3189 7.11505 3.3179 11.9201C3.3159 13.4491 3.7169 14.9521 4.4809 16.2771L3.2439 20.7931L7.8659 19.5811C9.1449 20.2771 10.5769 20.6421 12.0329 20.6421H12.0369C16.8419 20.6421 20.7529 16.7321 20.7549 11.9271C20.7559 9.59905 19.8499 7.41005 18.2039 5.76205Z"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M13.095 13.5599L13.501 13.1569C13.874 12.7869 14.464 12.7399 14.894 13.0419C15.31 13.3339 15.686 13.5959 16.036 13.8399C16.592 14.2259 16.659 15.0179 16.18 15.4959L15.821 15.8549"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M8.14502 8.1789L8.50402 7.8199C8.98202 7.3419 9.77402 7.4089 10.16 7.9639C10.403 8.3139 10.665 8.6899 10.958 9.1059C11.26 9.5359 11.214 10.1259 10.843 10.4989L10.44 10.9049"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M15.821 15.8548C14.34 17.3288 11.851 16.0768 9.88599 14.1108"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path d="M9.88807 14.114C7.92307 12.148 6.67107 9.65996 8.14507 8.17896"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M10.4402 10.9048C10.7592 11.4078 11.1682 11.9058 11.6302 12.3678L11.6322 12.3698C12.0942 12.8318 12.5922 13.2408 13.0952 13.5598"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </a>
+
+                                <a class="footer__social-link" href="#" aria-label="Instagram">
+                                    <svg class="footer__social-ico" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M7.496 3H16.505C18.987 3 21 5.012 21 7.496V16.505C21 18.987 18.988 21 16.504 21H7.496C5.013 21 3 18.988 3 16.504V7.496C3 5.013 5.012 3 7.496 3V3Z"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M16.949 6.71304C16.763 6.71404 16.612 6.86504 16.612 7.05104C16.612 7.23704 16.764 7.38804 16.95 7.38804C17.136 7.38804 17.287 7.23704 17.287 7.05104C17.288 6.86404 17.136 6.71304 16.949 6.71304"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M14.5455 9.45432C15.9514 10.8602 15.9514 13.1396 14.5455 14.5455C13.1396 15.9514 10.8602 15.9514 9.45432 14.5455C8.04843 13.1396 8.04843 10.8602 9.45432 9.45432C10.8602 8.04843 13.1396 8.04843 14.5455 9.45432"
+                                            stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </a>
+
+                                <a class="footer__social-link" href="#" aria-label="Facebook">
+                                    <svg class="footer__social-ico" fill="#ffffff" width="24px" height="24px"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z">
+                                            </path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIDDLE -->
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <h3 class="footer__title-h5">Şirkət</h3>
+                    <ul class="footer__list">
+                        <li class="footer__item"><a class="footer__link" href="about.html">Haqqımızda</a></li>
+                        <li class="footer__item"><a class="footer__link" href="contact.html">Əlaqə saxlayın</a></li>
+                        <li class="footer__item"><a class="footer__link" href="blog.html">Bloq</a></li>
+                        <li class="footer__item"><a class="footer__link" href="complaints.html">Şikayət və Təkliflər</a></li>
+                    </ul>
+                </nav>
+
+                <!-- RIGHT -->
+                <div class="footer__info">
+                    <h3 class="footer__title-h5">Əlaqə</h3>
+
+                    <div class="footer__contacts">
+                        <div class="footer__contact">
+                            <span class="footer__icon footer__icon--link" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 13V13C10.343 13 9 11.657 9 10V10C9 8.343 10.343 7 12 7V7C13.657 7 15 8.343 15 10V10C15 11.657 13.657 13 12 13Z"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12 21C12 21 5 15.25 5 10C5 6.134 8.134 3 12 3C15.866 3 19 6.134 19 10C19 15.25 12 21 12 21Z"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            <p class="footer__contact-text">
+                                Bakı şəh, Sabunçu ray, Bakıxanov qəs, Bəşir Bünyadov 11B
+                            </p>
+                        </div>
+
+                        <div class="footer__contact">
+                            <a class="footer__icon footer__icon--link" href="tel:+994703339889" aria-label="Zəng et">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10.8561 13.1439C9.68615 11.9739 8.80415 10.6639 8.21815 9.33487C8.09415 9.05387 8.16715 8.72487 8.38415 8.50787L9.20315 7.68987C9.87415 7.01887 9.87415 6.06987 9.28815 5.48387L8.11415 4.30987C7.33315 3.52887 6.06715 3.52887 5.28615 4.30987L4.63415 4.96187C3.89315 5.70287 3.58415 6.77187 3.78415 7.83187C4.27815 10.4449 5.79615 13.3059 8.24515 15.7549C10.6941 18.2039 13.5551 19.7219 16.1681 20.2159C17.2281 20.4159 18.2971 20.1069 19.0381 19.3659L19.6891 18.7149C20.4701 17.9339 20.4701 16.6679 19.6891 15.8869L18.5161 14.7139C17.9301 14.1279 16.9801 14.1279 16.3951 14.7139L15.4921 15.6179C15.2751 15.8349 14.9461 15.9079 14.6651 15.7839C13.3361 15.1969 12.0261 14.3139 10.8561 13.1439Z"
+                                        stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </a>
+
+                            <a class="footer__phone" href="tel:+994703339889">(+994) 70-333-98-89</a>
+                        </div>
+                    </div>
+
+                    <div class="footer__divider" role="presentation"></div>
+
+                    <div class="footer__hours">
+                        <h4 class="footer__title footer__title--sm">İş saatları</h4>
+
+                        <div class="footer__hours-row">
+                            <span class="footer__hours-item">B.e - C. 09:00 - 18:00</span>
+                            <span class="footer__hours-divider" aria-hidden="true"></span>
+                            <span class="footer__hours-item">Ş-B 12:00 - 17:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copy">ikiliiki ©2026. Bütün hüquqlar qorunur.</p>
+
+                <div class="footer__legal">
+                    <a class="footer__legal-link" href="privacy-policy.html">Məxfilik siyasəti</a>
+                    <a class="footer__legal-link" href="returns-and-conditions.html">Şərtlərimiz</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script type="module" src="assets/js/main.js?v=20260314"></script>
+    <script src="assets/js/product-list.js?v=20260314"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
