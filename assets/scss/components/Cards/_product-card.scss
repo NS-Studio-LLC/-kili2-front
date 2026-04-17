@@ -127,6 +127,27 @@
 
   &__footer {
     @include flex(space-between, center, 0.75rem);
+
+    .prices {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+
+      .main-price {
+        color: #010203;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
+        @include type-normal(600);
+        white-space: nowrap;
+      }
+
+      .discounted-price {
+        color: #010203;
+        font-size: 12px;
+        text-decoration: line-through;
+      }
+    }
   }
 
   &__btn {
@@ -137,28 +158,10 @@
     color: #010203;
     font-family: "Inter", sans-serif;
     font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
-     @include type-normal(600);
+    @include type-normal(600);
     white-space: nowrap;
   }
 
-  .products__price {
-    @include flex(flex-start, stretch, 0, column);
-    align-items: flex-start;
-    gap: 0.25rem;
-    color: #5a5f68;
-    font-size: clamp(calc(0.75rem - 0.125rem), 1.8vw, 0.75rem);
-     @include type-normal(400);
-    text-decoration-line: line-through;
-    white-space: nowrap;
-
-    &::after {
-      content: "300.00 AZN";
-      color: #010203;
-      font-size: clamp(calc(1.125rem - 0.125rem), 1.8vw, 1.125rem);
-       @include type-normal(600);
-      text-decoration: none;
-    }
-  }
 }
 
 @include mq(big-desktop-down) {
@@ -354,7 +357,7 @@
     min-width: 0;
   }
 
-  .products__btn > span svg {
+  .products__btn>span svg {
     width: 1.125rem;
     height: 1.125rem;
   }
