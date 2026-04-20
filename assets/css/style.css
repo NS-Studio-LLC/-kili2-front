@@ -183,6 +183,7 @@ textarea {
 }
 .products__card .card-badget-container .badget span {
   font-weight: 600;
+  font-size: 12px;
 }
 .products__img-wrap {
   width: 100%;
