@@ -155,11 +155,33 @@ header {
   .mega-menu {
     position: absolute;
     top: 100%;
-    left: 10%;
+    left: 15%;
     background: #fff;
     display: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+
+    svg{
+      width: 24px;
+      height: 24px;
+    }
+
+    .level-1 {
+      height: 460px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+
+    .level-2 {
+      height: 460px;
+
+      .overflow-div {
+        overflow-y: scroll;
+        height: 460px;
+        scrollbar-width: none;
+
+      }
+    }
 
     ul {
       list-style: none;
@@ -176,13 +198,13 @@ header {
     }
 
     .has-submenu {
-      padding: 16px;
+      padding: 0 0px;
 
       &-menu-item {
         display: flex;
         align-items: center;
         gap: 10px;
-        padding: 12px;
+        padding: 16px;
 
         &:hover {
           border-radius: 6px;
@@ -211,25 +233,23 @@ header {
         display: none;
         border-left: 1px solid #eee;
         box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
-        padding: 16px;
-
-        &:hover {
-          .has-card {
-            .product-card {
-              display: block;
-            }
-          }
-
-        }
 
         .has-card {
+          min-width: 350px;
+
+          &:hover {
+            .product-card {
+              display: block;
+              top: -16px;
+            }
+          }
 
           &-menu-item {
             display: flex;
             align-items: center;
             gap: 10px;
             min-width: 300px;
-            padding: 12px;
+            padding: 16px;
 
             &:hover {
               border-radius: 6px;
@@ -240,16 +260,17 @@ header {
               color: #010203;
               font-size: 16px;
               font-style: normal;
-              font-weight: 500;
+              font-weight: 600;
               line-height: normal;
               text-transform: capitalize;
               text-wrap: nowrap;
             }
 
             .arrow-icon {
-              margin-top: auto;
+              margin-left: auto;
             }
           }
+
 
           .product-card {
             position: absolute;
@@ -262,6 +283,7 @@ header {
             border-left: 1px solid #eee;
             text-align: center;
             min-height: 100%;
+            margin-top: 16px;
 
           }
         }
@@ -300,7 +322,7 @@ header {
   height: 100%;
   background: $overlay-bg;
   display: none;
-  z-index: 998;
+  z-index: 9;
 }
 
 .is-active {
@@ -359,6 +381,10 @@ header {
       }
     }
 
+  }
+
+  .mega-menu {
+    z-index: 9999;
   }
 
 }

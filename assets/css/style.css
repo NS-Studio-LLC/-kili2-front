@@ -166,6 +166,17 @@ textarea {
 .products__card:last-child {
   border-right: none;
 }
+.products__card .badget {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 2px 4px;
+  border-radius: 6px;
+  border: 1px outset black;
+}
+.products__card .badget span {
+  font-weight: 600;
+}
 .products__img-wrap {
   width: 100%;
   display: flex;
@@ -2966,11 +2977,28 @@ header .btn-group .dropdown-menu .dropdown-item img {
 header .mega-menu {
   position: absolute;
   top: 100%;
-  left: 10%;
+  left: 15%;
   background: #fff;
   display: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+header .mega-menu svg {
+  width: 24px;
+  height: 24px;
+}
+header .mega-menu .level-1 {
+  height: 460px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+header .mega-menu .level-2 {
+  height: 460px;
+}
+header .mega-menu .level-2 .overflow-div {
+  overflow-y: scroll;
+  height: 460px;
+  scrollbar-width: none;
 }
 header .mega-menu ul {
   list-style: none;
@@ -2984,13 +3012,13 @@ header .mega-menu li.has-submenu:hover > .submenu {
   display: block;
 }
 header .mega-menu .has-submenu {
-  padding: 16px;
+  padding: 0 0px;
 }
 header .mega-menu .has-submenu-menu-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px;
+  padding: 16px;
 }
 header .mega-menu .has-submenu-menu-item:hover {
   border-radius: 6px;
@@ -3015,17 +3043,20 @@ header .mega-menu .has-submenu .submenu {
   display: none;
   border-left: 1px solid #eee;
   box-shadow: 4px 0 10px rgba(0, 0, 0, 0.05);
-  padding: 16px;
 }
-header .mega-menu .has-submenu .submenu:hover .has-card .product-card {
+header .mega-menu .has-submenu .submenu .has-card {
+  min-width: 350px;
+}
+header .mega-menu .has-submenu .submenu .has-card:hover .product-card {
   display: block;
+  top: -16px;
 }
 header .mega-menu .has-submenu .submenu .has-card-menu-item {
   display: flex;
   align-items: center;
   gap: 10px;
   min-width: 300px;
-  padding: 12px;
+  padding: 16px;
 }
 header .mega-menu .has-submenu .submenu .has-card-menu-item:hover {
   border-radius: 6px;
@@ -3035,13 +3066,13 @@ header .mega-menu .has-submenu .submenu .has-card-menu-item span {
   color: #010203;
   font-size: 16px;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 600;
   line-height: normal;
   text-transform: capitalize;
   text-wrap: nowrap;
 }
 header .mega-menu .has-submenu .submenu .has-card-menu-item .arrow-icon {
-  margin-top: auto;
+  margin-left: auto;
 }
 header .mega-menu .has-submenu .submenu .has-card .product-card {
   position: absolute;
@@ -3055,6 +3086,7 @@ header .mega-menu .has-submenu .submenu .has-card .product-card {
   border-left: 1px solid #eee;
   text-align: center;
   min-height: 100%;
+  margin-top: 16px;
 }
 header .offcanvas-menu-button {
   padding: 10px 12px;
@@ -3086,7 +3118,7 @@ header .offcanvas-menu-button span {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   display: none;
-  z-index: 998;
+  z-index: 9;
 }
 
 .is-active {
@@ -3133,6 +3165,9 @@ header .offcanvas-menu-button span {
 }
 .is-sticky .header-actions .btn-group .dropdown-toggle {
   color: #000;
+}
+.is-sticky .mega-menu {
+  z-index: 9999;
 }
 
 .footer {
@@ -5472,7 +5507,6 @@ header .offcanvas-menu-button span {
 }
 .blog-detail__content ul {
   margin: 0;
-  padding-left: 1.2rem;
 }
 .blog-detail__content .blog-detail__type {
   display: flex;

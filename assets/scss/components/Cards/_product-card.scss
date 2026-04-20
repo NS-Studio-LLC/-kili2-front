@@ -17,6 +17,19 @@
     &:last-child {
       border-right: none;
     }
+
+    .badget {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 2px 4px;
+      border-radius: 6px;
+      border: 1px outset black;
+
+      span {
+        font-weight: 600;
+      }
+    }
   }
 
   &__img-wrap {
@@ -361,4 +374,5 @@
     width: 1.125rem;
     height: 1.125rem;
   }
+
 }
