@@ -18,18 +18,28 @@
       border-right: none;
     }
 
-    .badget {
+    .card-badget-container {
       position: absolute;
       top: 12px;
       left: 12px;
-      padding: 2px 4px;
-      border-radius: 6px;
-      border: 1px outset black;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
 
-      span {
-        font-weight: 600;
+      .badget {
+        padding: 2px 4px;
+        border-radius: 6px;
+        border: 1px outset black;
+
+        span {
+          font-weight: 600;
+        }
       }
     }
+
+
   }
 
   &__img-wrap {
