@@ -454,6 +454,10 @@ textarea {
     width: 6.75rem;
     height: auto;
   }
+  .products__stars svg {
+    width: 24px;
+    height: 24px;
+  }
   .products__badge {
     font-size: clamp(0.625rem, 1.8vw, 0.75rem);
     padding: 0.25rem 0.5rem;
@@ -520,6 +524,10 @@ textarea {
   .products__stars img {
     width: 6.75rem;
     height: auto;
+  }
+  .products__stars svg {
+    width: 24px;
+    height: 24px;
   }
   .products__badge {
     font-size: clamp(0.625rem, 1.8vw, 0.75rem);
@@ -2857,6 +2865,10 @@ body.drawer-open {
   gap: 10px;
   padding: 12px;
   width: 100%;
+}
+.offcanvas-body .accordion-item .accordion-header svg {
+  width: 24px;
+  height: 24px;
 }
 .offcanvas-body .accordion-item .accordion-header span {
   color: #010203;
