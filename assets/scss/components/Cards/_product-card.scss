@@ -24,25 +24,82 @@
       left: 12px;
       right: 12px;
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
+      align-items: flex-start;
+      gap: 12px;
 
-      .badget {
-        padding: 2px 4px;
-        border-radius: 6px;
-        border: 1px outset black;
+      .left-side-badgets {
         display: flex;
         align-items: center;
-        justify-content: center;
-        background-color: green;
+        flex-wrap: wrap;
+        gap: 8px;
 
-        span {
-          font-weight: 600;
-          font-size: 12px;
-          color: #fff;
+        .badget {
+          padding: 2px 4px;
+          border-radius: 6px;
+          border: 1px outset black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: green;
+
+          span {
+            font-weight: 600;
+            font-size: 12px;
+            color: #fff;
+          }
         }
       }
+
+
+
+      .right-side-badgets {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .discount-amount-badget {
+          padding: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-wrap: nowrap;
+
+          border-radius: 4px;
+          border: 1px solid #E3002E;
+          background: rgba(227, 0, 46, 0.10);
+
+          span {
+            color: #E3002E;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+        }
+
+        .discount-percent-badget {
+          padding: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background: #E3002E;
+          width: 60px;
+          height: 60px;
+
+          span {
+            color: #FFF;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+          }
+        }
+
+      }
+
+
     }
 
   }
