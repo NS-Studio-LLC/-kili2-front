@@ -180,10 +180,15 @@ textarea {
   padding: 2px 4px;
   border-radius: 6px;
   border: 1px outset black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
 }
 .products__card .card-badget-container .badget span {
   font-weight: 600;
   font-size: 12px;
+  color: #fff;
 }
 .products__img-wrap {
   width: 100%;
@@ -3757,7 +3762,6 @@ header .offcanvas-menu-button span {
     height: 1rem;
   }
   .footer__hours-row {
-    flex-direction: column;
     gap: 0.375rem;
     align-items: center;
   }
