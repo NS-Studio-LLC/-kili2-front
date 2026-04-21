@@ -2,34 +2,55 @@
 
 // * HERO SECTION * \\
 .hero {
+  border-radius: 16px;
+  overflow: hidden;
+
   &__container {
     width: 100%;
     @include flex(center, flex-start);
     align-self: stretch;
     gap: 1rem;
-
-    .heroSwiper {
-      border-radius: 16px;
-    }
+    border-radius: 16px;
+    overflow: hidden;
 
   }
 
   &__banner {
     flex: 1 1 auto;
-    height: 25.75rem;
     border-radius: 0.75rem;
     overflow: hidden;
     justify-content: center;
     align-items: center;
     align-self: stretch;
+
+
+    .heroSwiper {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    .swiper-wrapper {
+      height: 100%;
+      border-radius: 16px;
+
+      .swiper-slide {
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
+
 
   &__banner-img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
-    object-position: center 9.5%;
   }
 
   &__card {
