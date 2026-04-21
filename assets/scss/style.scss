@@ -14,7 +14,8 @@
 @use './components/forms/forms';
 @use './components/Cards/offcanvas';
 @use './components/buttons/phoneButton';
-
+@use './components/Cards/fotorama';
+@use './components/Cards/swiper';
 
 // layout
 @use './layout/header';

@@ -1,0 +1,296 @@
+@use '../../abstracts/mixins' as *;
+
+.fotorama-page-container {
+    padding: 24px;
+
+    @include mq(tablet-portrait-up) {
+        gap: 12px;
+    }
+
+    .fotorama-wrapper {
+        padding: 0;
+        height: 100%;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .fotorama {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+
+            .stage {
+                height: 700px;
+
+                @include mq(tablet-portrait-up) {
+                    height: 339px;
+                }
+
+                .pagination {
+                    z-index: 999;
+                    position: absolute;
+                    display: none;
+                    border-radius: 2px;
+                    background: rgba(0, 0, 0, 0.50);
+                    height: fit-content;
+                    bottom: 10px;
+                    right: 10px;
+                    padding: 5px 10px;
+
+                    div {
+                        width: 100%;
+                        color: white;
+                        font-weight: 500;
+                    }
+
+                    @include mq(tablet-portrait-up) {
+                        display: inline;
+                    }
+                }
+
+                .subscribe-type-mobile {
+                    z-index: 999;
+                    bottom: 10px;
+                    left: 10px;
+                    gap: 10px;
+
+                    @include mq(tablet-portrait-down) {
+                        display: none !important;
+                    }
+
+                    button {
+                        padding: 10px;
+                        background-color: white;
+                        border-radius: 12px;
+                        border: none;
+
+                        img {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+
+                }
+
+                .fullscreen {
+                    background: rgba(0, 0, 0, 0.55);
+                    padding: 10px;
+                    z-index: 999;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    border-radius: 50%;
+                    outline: none;
+                    border: none;
+
+                    img {
+                        padding: 6px;
+                    }
+                }
+            }
+
+            .thumbs-container {
+                display: flex;
+
+                @include mq(tablet-portrait-up) {
+                    display: none;
+                }
+
+                .mainThumbsSwiper {
+                    width: 100%;
+
+
+                    .thumbs {
+                        height: 100%;
+
+                        .overlay {
+                            width: calc((100% - 60px) / 6);
+                            height: 100%;
+                            top: 0;
+                            right: 0;
+                            display: none;
+                            justify-content: center;
+                            align-items: center;
+                            z-index: 999;
+                            color: #FFF;
+                            font-size: 21px;
+                            font-weight: 600;
+                            background-color: rgba(0, 0, 0, 0.6);
+                            border-radius: 12px;
+                        }
+
+                        .swiper-slide {
+                            border-radius: 12px;
+
+                        }
+
+                        &-img {
+                            border-radius: 12px;
+                            height: 140px;
+
+                            @include mq(special) {
+                                height: 120px;
+                            }
+
+                            @include mq(tablet-landscape-up) {
+                                height: 100px;
+                            }
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(255, 255, 255, 0.5);
+                                opacity: 1;
+                            }
+
+                            img {
+                                object-fit: cover;
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 12px;
+                            }
+                        }
+
+                        .active {
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(255, 255, 255, 0.5);
+                                opacity: 0;
+                            }
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-content {
+        background-color: black;
+
+        .fullscreen {
+            background: rgba(0, 0, 0, 0.55);
+            padding: 10px;
+            z-index: 999;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 50%;
+            outline: none;
+            border: none;
+
+            img {
+                padding: 6px;
+            }
+        }
+
+        .fotorama {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 10px 0;
+            gap: 10px;
+
+            .stage {
+                height: 85%;
+
+                .swiper {
+                    padding: 0;
+                    height: 100%;
+
+                    .swiper-button-next {
+                        background-color: transparent;
+                        color: white;
+                    }
+
+                    .swiper-button-prev {
+                        background-color: transparent;
+                        color: white;
+                    }
+
+                    .swiper-wrapper {
+
+                        .swiper-slide {
+                            width: 100%;
+                            height: 100%;
+
+                            img {
+                                object-fit: contain;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .thumbs {
+                height: 10%;
+
+                .thumbSwiper {
+                    height: 100%;
+
+                    .swiper-wrapper {
+                        padding: 0 5px;
+
+                        .swiper-slide {
+                            border-radius: 12px;
+
+                            img {
+                                object-fit: cover;
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 12px;
+
+                            }
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(255, 255, 255, 0.5);
+                                opacity: 1;
+                                border-radius: 12px;
+
+                            }
+
+                        }
+
+                        .swiper-slide.active {
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 80px;
+                                height: 80px;
+                                background: rgba(255, 255, 255, 0.5);
+                                opacity: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
